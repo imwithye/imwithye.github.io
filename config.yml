@@ -31,3 +31,22 @@ params:
       url: https://www.linkedin.com/in/yiwei-gong/
     - name: Rss
       url: "index.xml"
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 50
