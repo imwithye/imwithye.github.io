@@ -37,7 +37,14 @@ private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://yiwei.dev/about/</guid>
-      <description></description>
+      <description>Yiwei Gong, @imwithye
+Co-Founder, Solution Architect, Computer Graphics, AI
+National University of Singapore
+Co-Founder of VRcollab
+Love Study!
+Based in Singapore 🇸🇬 and Shanghai 🇨🇳
+imwithye#gmail.com
+Golang C++, Python, C#, JavaScript, Unity, Unreal, HLSL, CG, CUDA</description>
     </item>
     
     
