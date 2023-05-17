@@ -25,6 +25,10 @@ params:
   keywords: [Blog, Portfolio]
   author: Yiwei Gong
 
+  ShowPostNavLinks: true
+  ShowShareButtons: true
+  ShowCodeCopyButtons: true
+
   homeInfoParams:
     Title: 禅心剑气相思骨
     Content: 欢迎访问我的博客，这里包含我的一些技术分享，思考，生活感悟。
