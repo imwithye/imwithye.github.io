@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C# on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/c#/</link>
+    <description>Recent content in C# on 禅心剑气相思骨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 16 Nov 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asynchronous function in Unity</title>
+      <link>https://yiwei.dev/posts/asynchronous-function-in-unity/</link>
+      <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/asynchronous-function-in-unity/</guid>
+      <description>Async and await keyword Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like Start, Update, now it supports the async version, and with the async keyword in the front, the function now will be dispatched asynchronously automatically by the engine.
+private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#34;); await Task.Delay(TimeSpan.FromSeconds(2)); Debug.Log(&amp;#34;Task delay 2 finished&amp;#34;); } The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -21,5 +21,15 @@
 我们无比渴望自由，但是正如孙中山先生所说，这个世界上没有绝对的自由。在此告诫改革者们，即使是一套有漏洞有缺陷的制度，也远远比假大空的空想愿景更好。</description>
     </item>
     
+    <item>
+      <title>Asynchronous function in Unity</title>
+      <link>https://yiwei.dev/posts/asynchronous-function-in-unity/</link>
+      <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/asynchronous-function-in-unity/</guid>
+      <description>Async and await keyword Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like Start, Update, now it supports the async version, and with the async keyword in the front, the function now will be dispatched asynchronously automatically by the engine.
+private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#34;); await Task.Delay(TimeSpan.FromSeconds(2)); Debug.Log(&amp;#34;Task delay 2 finished&amp;#34;); } The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.</description>
+    </item>
+    
   </channel>
 </rss>
