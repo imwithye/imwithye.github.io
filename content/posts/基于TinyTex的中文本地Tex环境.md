@@ -36,7 +36,7 @@ tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texliv
 tlmgr install ctex
 ```
 
-## 3. 安装VScod + LaTex Workshop
+## 3. 安装VScode + LaTex Workshop
 
 在VScode中安装LaTex Workshop插件，安装成功后打开任意`tex`文件就可以愉快的书写啦。
 
