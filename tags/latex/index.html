@@ -6,7 +6,7 @@
 下载完成后解压缩放到任意文件夹下，并且将bin目录添加到PATH变量中。我是用的是macOS，因此我的PATH为
 export PATH=$PATH:$HOME/TinyTeX/bin/universal-darwin 2. 更新tlmgr源和安装中文支持 设置好环境变量后，重启终端就可以访问tlmgr。为了在国内更快的访问速度，可以修改tlmgr源为清华源，执行
 tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet 然后安装ctex包获得中文支持
-tlmgr install ctex 3. 安装VScod + LaTex Workshop 在VScode中安装LaTex Workshop插件，安装成功后打开任意tex文件就可以愉快的书写啦。
+tlmgr install ctex 3. 安装VScode + LaTex Workshop 在VScode中安装LaTex Workshop插件，安装成功后打开任意tex文件就可以愉快的书写啦。
 对于中文支持，可以使用CJKutf8
 \documentclass{article} \usepackage{CJKutf8} \begin{document} \begin{CJK*}{UTF8}{gbsn} \section{前言} \section{关于数学部分} 数学、中英文皆可以混排。You can intersperse math, Chinese and English (Latin script) without adding extra environments. \end{CJK*} \bigskip %% Just some white space You can also insert Latin text in your document \bigskip %% Just some white space \begin{CJK*}{UTF8}{bsmi} 這是繁體中文。 \end{CJK*} \end{document} 进行中英文混排。</p></div><footer class=entry-footer><span title='2023-11-16 00:00:00 +0000 UTC'>November 16, 2023</span>&nbsp;·&nbsp;Yiwei Gong</footer><a class=entry-link aria-label="post link to 基于TinyTex的中文本地Tex环境" href=https://yiwei.dev/posts/%E5%9F%BA%E4%BA%8Etinytex%E7%9A%84%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0tex%E7%8E%AF%E5%A2%83/></a></article></main><footer class=footer><span>&copy; 2023 <a href=https://yiwei.dev>禅心剑气相思骨</a></span>
 <span>Powered by
