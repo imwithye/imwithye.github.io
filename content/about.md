@@ -10,7 +10,7 @@ Co-Founder, Solution Architect, Computer Graphics, AI
 
 National University of Singapore
 
-Co-Founder of [VRcollab](https://vrcollab.com)
+Co-Founder of [INFR AI](https://vrcollab.com)
 
 Love Study!
 
