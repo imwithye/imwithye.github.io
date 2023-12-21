@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://yiwei.dev/tags/computer-vision/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yiwei.dev/posts/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yiwei.dev/tags/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yiwei.dev/posts/%E7%90%86%E8%A7%A3%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yiwei.dev/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yiwei.dev/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2023-12-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://yiwei.dev/tags/latex/</loc>
     <lastmod>2023-11-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://yiwei.dev/posts/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://yiwei.dev/tags/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://yiwei.dev/posts/%E5%9F%BA%E4%BA%8Etinytex%E7%9A%84%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0tex%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://yiwei.dev/</loc>
     <lastmod>2023-11-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://yiwei.dev/tags/%E9%9A%8F%E7%AC%94/</loc>

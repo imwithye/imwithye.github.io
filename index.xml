@@ -5,7 +5,21 @@
     <link>https://yiwei.dev/</link>
     <description>Recent content on 禅心剑气相思骨</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 16 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理解光束法平差</title>
+      <link>https://yiwei.dev/posts/%E7%90%86%E8%A7%A3%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE/</link>
+      <pubDate>Thu, 21 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/%E7%90%86%E8%A7%A3%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE/</guid>
+      <description>在学习计算机视觉的时候，一个无法避开的话题就是光束法平差（Bundle Adjustment）。光束法平差是一个后端优化常用的万金油，其本质是在一组具有误差的点和约束的关系中，寻找一个最优或者最具可能性的解。我在学习的过程中发现，大部分的书籍都在侧重介绍光束法平差的解法，或多或少都涉及大量的数学知识。然而，对于软件工程任务来说，最重要的是理解几个问题：
+什么时候使用光束法平差算法？ 光束法平差的输入和输出参数是什么？ 如何从工程角度优化光束法平差？ 由于Matlab的计算机视觉工具箱中自带了光束法平差的算法，我们将使用Matlab作为例子，来逐步回答上面几个问题。
+什么时候使用光束法平差算法？ 让我们首先来理解线性回归问题，并从中理解最小二乘法的原理。
+TBA
+光束法平差的输入和输出参数是什么？ TBA
+如何从工程角度优化光束法平差？ TBA</description>
+    </item>
+    
     <item>
       <title>基于TinyTex的中文本地Tex环境</title>
       <link>https://yiwei.dev/posts/%E5%9F%BA%E4%BA%8Etinytex%E7%9A%84%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0tex%E7%8E%AF%E5%A2%83/</link>
