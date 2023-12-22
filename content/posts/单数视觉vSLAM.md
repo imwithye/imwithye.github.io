@@ -235,3 +235,52 @@ mapPlot = helperVisualizeMotionAndStructure(vSetKeyFrames, mapPointSet);
 ## SLAM 位姿跟踪
 
 现在我们开始实现 SLAM 的位姿跟踪。每当我们发现了一个新的关键帧，我们就将其加入到我们的数据集中，并计算和调整我们的位姿态，为了简化我们的跟踪问题，当我们检测到回环的时候，我们停止跟踪。
+
+```matlab
+currKeyFrameId   = currViewId;
+lastKeyFrameId   = currViewId;
+lastKeyFrameIdx  = currFrameIdx - 1;
+addedFramesIdx   = [1; lastKeyFrameIdx];
+isLoopClosed     = false;
+```
+
+在这里`currKeyFrameId`和`lastKeyFrameId`追踪的是关键帧的 Id，而`lastKeyFrameIdx`是关键帧所对应照片的 Index，我们刚刚处理了第一帧和第二帧用于地图的初始化，因此，在这里`lastKeyFrameId`为 2，而`lastKeyFrameIdx`为 29（因为第二帧关键帧来自于第 29 张照片，减 1 是因为我们在`while`中多加了一次）。`addedFramesIdx`则继续追踪被加入的照片的 Index。
+
+现在我们开始进入追踪循环，对于每一帧来说我们进行：
+
+1. 特征匹配，我们将新的一帧和最后一帧进行匹配。
+2. 使用 Perspective-n-Point 算法估计新的一帧的相机位姿
+3. 将最后一帧的世界点重投影到新的一帧，并且寻找相匹配的点
+4. 执行一次`bundleAdjustment`，但这一次我们只关心新的一帧的相机位姿，因此调用`bundleAdjustmentMotion`
+5. 将更多的世界点重投影到新的一帧，并继续调用`bundleAdjustmentMotion`
+6. 最后，我们尝试检测新的一帧是否为关键帧，如果是则加入关键帧序列，否则继续处理下一帧数据。
+
+很显然，当新的一帧数据的特征点不够多的时候，我们会出现追踪丢失问题，我们可以不断加入新的帧来寻找匹配的特征点（具体来说，类似我们走到了一个四面都是白墙的迷宫，我们迷路了，我们可以试探性的往某个方向，直到得到路标，然后继续追踪）。
+
+代码表述如下
+
+## 回环检测和优化
+
+在最后，当我们检测到回环以后，我们应该进行回环优化，将我们的位姿信息进一步的调整。
+
+```matlab
+if isLoopClosed
+    % Optimize the poses
+    minNumMatches      = 20;
+    vSetKeyFramesOptim = optimizePoses(vSetKeyFrames, minNumMatches, Tolerance=1e-16);
+
+    % Update map points after optimizing the poses
+    mapPointSet = helperUpdateGlobalMap(mapPointSet, vSetKeyFrames, vSetKeyFramesOptim);
+
+    updatePlot(mapPlot, vSetKeyFrames, mapPointSet);
+
+    % Plot the optimized camera trajectory
+    optimizedPoses  = poses(vSetKeyFramesOptim);
+    plotOptimizedTrajectory(mapPlot, optimizedPoses)
+
+    % Update legend
+    showLegend(mapPlot);
+end
+```
+
+![](/img-posts/单目视觉vSLAM_3.gif)
