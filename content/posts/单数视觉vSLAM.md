@@ -114,7 +114,7 @@ if validFraction < 0.9 || numel(relPose)==3
 end
 ```
 
-如果`validFraction`太小，一般来说小于0.9，那就意味着基础矩阵是不正确的。或者如果我们的相对位姿计算不正确，那我们就应该跳过该图片，利用下一张图片求解。
+如果`validFraction`太小，一般来说小于 0.9，那就意味着基础矩阵是不正确的。或者如果我们的相对位姿计算不正确，那我们就应该跳过该图片，利用下一张图片求解。
 
 ### 三角化和稀疏点云估计
 
@@ -133,4 +133,58 @@ end
 
 ### 初始化结果
 
-至此，我们完成了整个的地图的初始化工作，我们可以查看对应的图片和初始化效果。根据运行的结果，我们可以看到最后使用了第1张和第29张图片完成了地图的初始化工作。
+至此，我们完成了整个的地图的初始化工作，我们可以查看对应的图片和初始化效果。根据运行的结果，我们可以看到最后使用了第 1 张和第 29 张图片完成了地图的初始化工作。初始化的特征匹配结果如下
+
+![](/img-posts/单目视觉vSLAM_1.png)
+
+## 建立关键帧和地图空间点存储集合
+
+Matlab 提供了两个类来存储关键帧和地图空间点，分别是`imageviewset`和`worldpointset`。我们创建关键帧`viewset`以后，将用于地图初始化的两张图片作为初始的俩个关键帧存入，同时我们加入关键帧相关性链接。相关性指的是俩个关键帧之间的相对位姿，以及相关的匹配点。最后我们将三角化后的世界坐标加入到地图的世界点集合中。
+
+```matlab
+vSetKeyFrames = imageviewset;
+mapPointSet   = worldpointset;
+
+preViewId     = 1;
+vSetKeyFrames = addView(vSetKeyFrames, preViewId, rigidtform3d, Points=prePoints,...
+    Features=preFeatures.Features);
+currViewId    = 2;
+vSetKeyFrames = addView(vSetKeyFrames, currViewId, relPose, Points=currPoints,...
+    Features=currFeatures.Features);
+
+vSetKeyFrames = addConnection(vSetKeyFrames, preViewId, currViewId, relPose, Matches=indexPairs);
+[mapPointSet, newPointIdx] = addWorldPoints(mapPointSet, xyzWorldPoints);
+```
+
+这里`newPointIdx`是添加的世界点的下标集合。每一个世界点都是有两帧关键帧的匹配点通过对极几何约束和三角化处理得到，因此在`indexPairs`中的第一组点对应的第一关键帧中的点序列，第二组点对应的是第二个关键帧中的点序列。在`mapPointSet`中，我们需要将这一组对应关系添加进去，之后的后端优化中，我们将使用到世界点和像点的对应关系。
+
+```matlab
+mapPointSet   = addCorrespondences(mapPointSet, preViewId, newPointIdx, indexPairs(:,1));
+mapPointSet   = addCorrespondences(mapPointSet, currViewId, newPointIdx, indexPairs(:,2));
+```
+
+## 回环检测和初始化地标识别数据库
+
+我们初始化地标识别数据库用于回环检测算法。地标识别使用的是词袋模型。我们可以从一个大数据采集的图像集合中生成字典，生成的方法为
+
+```matlab
+bofData = bagOfFeatures(imds, ...
+    CustomExtractor=@helperORBFeatureExtractorFunction, ...
+    TreeProperties=[3, 10], StrongestFeatures=1);
+```
+
+在这里我们使用一个预生成的字典文件，并且生成回环检测数据库
+
+```matlab
+bofData      = load("bagOfFeaturesDataSLAM.mat");
+loopDatabase = invertedImageIndex(bofData.bof,SaveFeatureLocations=false);
+```
+
+接下来，我们将第一帧和第二帧的特征数据以及`viewId`添加到数据库。
+
+```matlab
+addImageFeatures(loopDatabase, preFeatures, preViewId);
+addImageFeatures(loopDatabase, currFeatures, currViewId);
+```
+
+## 第一次后端优化和重建可视化
