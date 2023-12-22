@@ -188,3 +188,50 @@ addImageFeatures(loopDatabase, currFeatures, currViewId);
 ```
 
 ## 第一次后端优化和重建可视化
+
+当我们有了世界点的坐标，位姿以及成像坐标以后，我们可以使用`bundleAdjustment`对数据进行优化，寻找最佳的位姿以达到最少的重投影误差。Matlab 内建了`bundleAdjustment`函数，我们需要输入世界点的坐标，视图中相关联的对应点`tracks`，相机位姿信息，相机内参。同时，我们可以指定哪些关键帧的位姿是不需要调整的，在这里我们第一帧的位置将会被固定。我们第一次后端优化仅仅使用了俩个关键帧，在双视图几何中，俩个相对应的像点，形成一个世界空间的三位点，因此`xyzWorldPoints`的大小应该和`tracks`的大小一致，并且每个`tracks`中的点对，成像一个`xyzWorldPoints`中的点。
+
+```matlab
+tracks       = findTracks(vSetKeyFrames);
+cameraPoses  = poses(vSetKeyFrames);
+
+[refinedPoints, refinedAbsPoses] = bundleAdjustment(xyzWorldPoints, tracks, ...
+    cameraPoses, intrinsics, FixedViewIDs=1, ...
+    PointsUndistorted=true, AbsoluteTolerance=1e-7,...
+    RelativeTolerance=1e-15, MaxIteration=20, ...
+    Solver="preconditioned-conjugate-gradient");
+```
+
+在`bundleAdjustment`之后，我们得到了调整后的点以及调整后的相机位姿态。我们应该将调整后的点重新应用到我们的关键帧中。为了可视化方便，我们将坐标点和位姿的都按统一尺度进行缩放
+
+```matlab
+% Scale the map and the camera pose using the median depth of map points
+medianDepth   = median(vecnorm(refinedPoints.'));
+refinedPoints = refinedPoints / medianDepth;
+
+refinedAbsPoses.AbsolutePose(currViewId).Translation = ...
+    refinedAbsPoses.AbsolutePose(currViewId).Translation / medianDepth;
+relPose.Translation = relPose.Translation/medianDepth;
+
+% Update key frames with the refined poses
+vSetKeyFrames = updateView(vSetKeyFrames, refinedAbsPoses);
+vSetKeyFrames = updateConnection(vSetKeyFrames, preViewId, currViewId, relPose);
+
+% Update map points with the refined positions
+mapPointSet = updateWorldPoints(mapPointSet, newPointIdx, refinedPoints);
+
+% Update view direction and depth
+mapPointSet = updateLimitsAndDirection(mapPointSet, newPointIdx, vSetKeyFrames.Views);
+
+% Update representative view
+mapPointSet = updateRepresentativeView(mapPointSet, newPointIdx, vSetKeyFrames.Views);
+mapPlot = helperVisualizeMotionAndStructure(vSetKeyFrames, mapPointSet);
+```
+
+最后我们将位姿和世界点绘图得到
+
+![](/img-posts/单目视觉vSLAM_2.png)
+
+## SLAM 位姿跟踪
+
+现在我们开始实现 SLAM 的位姿跟踪。每当我们发现了一个新的关键帧，我们就将其加入到我们的数据集中，并计算和调整我们的位姿态，为了简化我们的跟踪问题，当我们检测到回环的时候，我们停止跟踪。
