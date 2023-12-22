@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SLAM on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/slam/</link>
+    <description>Recent content in SLAM on 禅心剑气相思骨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 22 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/slam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单目视觉vSLAM</title>
+      <link>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</link>
+      <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</guid>
+      <description>Matlab 官方提供了完整的单目视觉 vSLAM 的 pipeline，https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html。这里对 Matlab 的这边文章的关键点做一个笔记和讨论，具体的实现可以参考原文文档。
+初始化数据集 Matlab 提供了imageDatastore类用于初始化图像存储集合，其接受一个图像的文件夹路径的参数。
+imageFolder = [dataFolder,&amp;#39;rgbd_dataset_freiburg3_long_office_household/rgb/&amp;#39;]; imds = imageDatastore(imageFolder); 初始化地图 在 SLAM 管线中，首先我们应该对相机进行标定，相机标定可以用Computer Vision 工具箱中的相机标定工具。如果预先知道了相机的内参，可以通过cameraIntrinsics类直接进行初始化。
+% Create a cameraIntrinsics object to store the camera intrinsic parameters. % The intrinsics for the dataset can be found at the following page: % https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats % Note that the images in the dataset are already undistorted, hence there % is no need to specify the distortion coefficients. focalLength = [535.</description>
+    </item>
+    
+  </channel>
+</rss>
