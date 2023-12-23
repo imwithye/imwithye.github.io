@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Math on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/math/</link>
+    <description>Recent content in Math on 禅心剑气相思骨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>非线性优化 - Ceres Solver</title>
+      <link>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</guid>
+      <description>我们考虑这个优化问题：
+$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
+$$ \text{s.t.} \quad l_j \le x_j \le u_j $$
+这个问题又称为非线性最小二乘问题。
+具体来说，我们寻找$x$的最小值，并且$x$满足了约束$l_j \le x_j \le u_j$，使得函数$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$的和最小。我们又把$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$称之为残差块（ResidualBlock），$f_i (x_{i_1}, &amp;hellip; ,x_{i_k})$成为代价函数（CostFunction），且依赖于$x_i$。$x_i$称为参数块（ParameterBlock）。同时参数块受到了$l_i$和$u_i$的约束。
+特别的这里的$\rho_i$称为损失函数（LossFunction），损失函数是一个标量值，用于减少外值对解的影响。
+特别的，当我们的$\rho_i = 1$且上下界都为无穷大时，我们的问题简化为:
+$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
+一个最简单的例子 我们考虑优化一个函数：
+$$ \frac{1}{2}(10-x)^2 $$
+我们用Ceres Solver来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为1，且$x$在实数域上没有约束。所以我们定义我们的代价函数
+struct CostFunctor { template &amp;lt;typename T&amp;gt; bool operator()(const T* const x, T* residual) const { residual[0] = 10.</description>
+    </item>
+    
+  </channel>
+</rss>
