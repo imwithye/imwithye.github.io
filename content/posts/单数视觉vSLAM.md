@@ -259,6 +259,135 @@ isLoopClosed     = false;
 
 代码表述如下
 
+```matlab
+% Main loop
+isLastFrameKeyFrame = true;
+while ~isLoopClosed && currFrameIdx < numel(imds.Files)
+    currI = readimage(imds, currFrameIdx);
+
+    [currFeatures, currPoints] = helperDetectAndExtractFeatures(currI, scaleFactor, numLevels, numPoints);
+
+    % Track the last key frame
+    % mapPointsIdx:   Indices of the map points observed in the current frame
+    % featureIdx:     Indices of the corresponding feature points in the
+    %                 current frame
+    [currPose, mapPointsIdx, featureIdx] = helperTrackLastKeyFrame(mapPointSet, ...
+        vSetKeyFrames.Views, currFeatures, currPoints, lastKeyFrameId, intrinsics, scaleFactor);
+
+    % Track the local map and check if the current frame is a key frame.
+    % A frame is a key frame if both of the following conditions are satisfied:
+    %
+    % 1. At least 20 frames have passed since the last key frame or the
+    %    current frame tracks fewer than 100 map points.
+    % 2. The map points tracked by the current frame are fewer than 90% of
+    %    points tracked by the reference key frame.
+    %
+    % Tracking performance is sensitive to the value of numPointsKeyFrame.
+    % If tracking is lost, try a larger value.
+    %
+    % localKeyFrameIds:   ViewId of the connected key frames of the current frame
+    numSkipFrames     = 20;
+    numPointsKeyFrame = 80;
+    [localKeyFrameIds, currPose, mapPointsIdx, featureIdx, isKeyFrame] = ...
+        helperTrackLocalMap(mapPointSet, vSetKeyFrames, mapPointsIdx, ...
+        featureIdx, currPose, currFeatures, currPoints, intrinsics, scaleFactor, numLevels, ...
+        isLastFrameKeyFrame, lastKeyFrameIdx, currFrameIdx, numSkipFrames, numPointsKeyFrame);
+
+    % Visualize matched features
+    updatePlot(featurePlot, currI, currPoints(featureIdx));
+
+    if ~isKeyFrame
+        currFrameIdx        = currFrameIdx + 1;
+        isLastFrameKeyFrame = false;
+        continue
+    else
+        isLastFrameKeyFrame = true;
+    end
+
+    % Update current key frame ID
+    currKeyFrameId  = currKeyFrameId + 1;
+```
+
+对于每个关键帧都进行本地映射。确定新的关键帧时，将其添加到关键帧集合中，并更新新关键帧观察到的地图点的属性。为了确保`mapPointSet`中包含尽可能少的异常值，一个有效的地图点必须在至少 3 个关键帧中被观察到。
+
+新的地图点是通过三角化当前关键帧及其连接的关键帧中的 ORB 特征点创建的。对于当前关键帧中的每个未匹配的特征点，使用`matchFeatures`在连接的关键帧中搜索与其他未匹配点的匹配点。本地束调整会优化当前关键帧的位姿、连接关键帧的位姿以及这些关键帧中观察到的所有地图点。
+
+```matlab
+    % Add the new key frame
+    [mapPointSet, vSetKeyFrames] = helperAddNewKeyFrame(mapPointSet, vSetKeyFrames, ...
+        currPose, currFeatures, currPoints, mapPointsIdx, featureIdx, localKeyFrameIds);
+
+    % Remove outlier map points that are observed in fewer than 3 key frames
+    outlierIdx    = setdiff(newPointIdx, mapPointsIdx);
+    if ~isempty(outlierIdx)
+        mapPointSet   = removeWorldPoints(mapPointSet, outlierIdx);
+    end
+
+    % Create new map points by triangulation
+    minNumMatches = 10;
+    minParallax   = 3;
+    [mapPointSet, vSetKeyFrames, newPointIdx] = helperCreateNewMapPoints(mapPointSet, vSetKeyFrames, ...
+        currKeyFrameId, intrinsics, scaleFactor, minNumMatches, minParallax);
+
+    % Local bundle adjustment
+    [refinedViews, dist] = connectedViews(vSetKeyFrames, currKeyFrameId, MaxDistance=2);
+    refinedKeyFrameIds = refinedViews.ViewId;
+    fixedViewIds = refinedKeyFrameIds(dist==2);
+    fixedViewIds = fixedViewIds(1:min(10, numel(fixedViewIds)));
+
+    % Refine local key frames and map points
+    [mapPointSet, vSetKeyFrames, mapPointIdx] = bundleAdjustment(...
+        mapPointSet, vSetKeyFrames, [refinedKeyFrameIds; currKeyFrameId], intrinsics, ...
+        FixedViewIDs=fixedViewIds, PointsUndistorted=true, AbsoluteTolerance=1e-7,...
+        RelativeTolerance=1e-16, Solver="preconditioned-conjugate-gradient", ...
+        MaxIteration=10);
+
+    % Update view direction and depth
+    mapPointSet = updateLimitsAndDirection(mapPointSet, mapPointIdx, vSetKeyFrames.Views);
+
+    % Update representative view
+    mapPointSet = updateRepresentativeView(mapPointSet, mapPointIdx, vSetKeyFrames.Views);
+
+    % Visualize 3D world points and camera trajectory
+    updatePlot(mapPlot, vSetKeyFrames, mapPointSet);
+```
+
+循环闭合检测步骤采用本地映射过程处理的当前关键帧，并尝试检测和闭合循环。通过使用`evaluateImageRetrieval`查询与当前关键帧在视觉上相似的数据库图像来识别循环候选帧。如果候选关键帧与最后一个关键帧不相连且其三个相邻关键帧是循环候选帧，则该候选关键帧是有效的。
+
+当找到一个有效的循环候选帧时，使用`estgeotform3d`计算循环候选帧与当前关键帧之间的相对位姿。相对位姿表示存储在`affinetform3d`对象中的三维相似变换。然后添加具有相对位姿的循环连接，并更新`mapPointSet和vSetKeyFrames`。
+
+```matlab
+    % Check loop closure after some key frames have been created
+    if currKeyFrameId > 20
+
+        % Minimum number of feature matches of loop edges
+        loopEdgeNumMatches = 50;
+
+        % Detect possible loop closure key frame candidates
+        [isDetected, validLoopCandidates] = helperCheckLoopClosure(vSetKeyFrames, currKeyFrameId, ...
+            loopDatabase, currI, loopEdgeNumMatches);
+
+        if isDetected
+            % Add loop closure connections
+            [isLoopClosed, mapPointSet, vSetKeyFrames] = helperAddLoopConnections(...
+                mapPointSet, vSetKeyFrames, validLoopCandidates, currKeyFrameId, ...
+                currFeatures, loopEdgeNumMatches);
+        end
+    end
+
+    % If no loop closure is detected, add current features into the database
+    if ~isLoopClosed
+        addImageFeatures(loopDatabase,  currFeatures, currKeyFrameId);
+    end
+
+    % Update IDs and indices
+    lastKeyFrameId  = currKeyFrameId;
+    lastKeyFrameIdx = currFrameIdx;
+    addedFramesIdx  = [addedFramesIdx; currFrameIdx]; %#ok<AGROW>
+    currFrameIdx    = currFrameIdx + 1;
+end % End of main loop
+```
+
 ## 回环检测和优化
 
 在最后，当我们检测到回环以后，我们应该进行回环优化，将我们的位姿信息进一步的调整。
