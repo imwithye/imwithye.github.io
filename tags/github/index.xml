@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GitHub on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/github/</link>
+    <description>Recent content in GitHub on 禅心剑气相思骨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 02 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process</title>
+      <link>https://yiwei.dev/posts/github-flow/</link>
+      <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/github-flow/</guid>
+      <description>Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process Introduction In our company, we originally adopted the GitFlow model for our development workflow. This model served us well, facilitating a structured approach to feature development, release management, and hotfixes. However, with the introduction of GitHub and its powerful pull request (PR) workflow, we decided to transition to a more integrated system. This blog post outlines our journey, the challenges we faced, and the solutions we implemented to streamline our development process.</description>
+    </item>
+    
+  </channel>
+</rss>
