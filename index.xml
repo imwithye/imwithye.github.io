@@ -5,7 +5,17 @@
     <link>https://yiwei.dev/</link>
     <description>Recent content on 禅心剑气相思骨</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 02 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K3s Cloud Master and Local Agent Setup</title>
+      <link>https://yiwei.dev/posts/k3s-nat/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://yiwei.dev/posts/k3s-nat/</guid>
+      <description>Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.
+Use Cases Local GPU Cluster: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.</description>
+    </item>
+    
     <item>
       <title>Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process</title>
       <link>https://yiwei.dev/posts/github-flow/</link>
