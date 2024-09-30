@@ -114,16 +114,6 @@ private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#
     </item>
     
     <item>
-      <title>K3s Cloud Master and Local Agent Setup</title>
-      <link>https://yiwei.dev/posts/k3s-nat/</link>
-      <pubDate>Sun, 12 Jul 2020 11:30:03 +0000</pubDate>
-      
-      <guid>https://yiwei.dev/posts/k3s-nat/</guid>
-      <description>Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.
-Use Cases Local GPU Cluster: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.</description>
-    </item>
-    
-    <item>
       <title>Rendering Equation</title>
       <link>https://yiwei.dev/posts/rendering-equation/</link>
       <pubDate>Sun, 12 Jul 2020 11:30:03 +0000</pubDate>
