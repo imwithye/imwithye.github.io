@@ -1,6 +1,6 @@
 ---
 title: "K3s Cloud Master and Local Agent Setup"
-date: 2020-07-12T11:30:03+00:00
+date: 2024-09-30T10:30:03+08:00
 tags: ["k8s", "k3s", "cluster"]
 ---
 
