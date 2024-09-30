@@ -29,14 +29,14 @@ First, install k3s on your cloud server and local agent:
 ```bash
 # Set server external IP
 export EXTERNAL_IP=$(curl -sSL ifconfig.me)
-
-# Install k3s master node
+# Install on K3s master node
 curl -sfL https://get.k3s.io | sh -s - --tls-san=$EXTERNAL_IP --node-external-ip=$EXTERNAL_IP --flannel-backend=wireguard-native
-
 # Get join token
 cat /var/lib/rancher/k3s/server/node-token
 
+
 # Install on local agent node
+# EXTERNAL_IP is the public IP of master node
 curl -sfL https://get.k3s.io | K3S_URL=https://$EXTERNAL_IP:6443 K3S_TOKEN=<NODE_TOKEN> sh - agent
 ```
 
@@ -47,8 +47,7 @@ If you prefer a lightweight, local development environment, k3d is a great alter
 ```bash
 # Set server external IP
 export EXTERNAL_IP=$(curl -sSL ifconfig.me)
-
-# Install k3d master node
+# Install on K3s master node
 k3d cluster create dev \
   --api-port 6443 \
   -p "443:443@loadbalancer" \
@@ -57,11 +56,12 @@ k3d cluster create dev \
   --k3s-arg "--tls-san=$EXTERNAL_IP@server:*" \
   --k3s-arg "--node-external-ip=$EXTERNAL_IP@server:*" \
   --k3s-arg "--flannel-backend=wireguard-native@server:*"
-
 # Get join token
 docker exec k3d-dev-server-0 cat /var/lib/rancher/k3s/server/node-token
 
+
 # Install on local agent node
+# EXTERNAL_IP is the public IP of master node
 K3D_FIX_DNS=0 k3d node create agent --cluster https://$EXTERNAL_IP:6443 --token <NODE_TOKEN>
 ```
 
