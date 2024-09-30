@@ -14,6 +14,14 @@ Setting up a cloud-based k3s master node with local agent nodes allows for easy 
 
 With built-in support for Flannel and WireGuard, k3s enables seamless networking without requiring additional software.
 
+### Firewall Configuration
+
+Before setting up your k3s cluster, it's crucial to configure your firewall to allow the necessary communication between nodes. Here are the key ports that need to be opened:
+
+1. **UDP 51820**: This port is essential for WireGuard communication, which k3s uses for its networking backend.
+2. **TCP 6443**: The Kubernetes API server port, used for cluster management.
+3. **TCP 80 and 443**: These ports are used for HTTP and HTTPS traffic, allowing you to expose services from your cluster.
+
 ### Setting Up with k3s
 
 First, install k3s on your cloud server and local agent:
