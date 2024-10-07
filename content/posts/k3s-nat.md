@@ -42,24 +42,9 @@ curl -sfL https://get.k3s.io | K3S_URL=https://$EXTERNAL_IP:6443 K3S_TOKEN=<NODE
 
 ### Alternative: Setting Up with k3d
 
-If you prefer a lightweight, local development environment, k3d is a great alternative. k3d allows you to run k3s clusters inside Docker containers, making it easy to create, manage, and test clusters on your local machine. This setup is perfect for scenarios where you need to simulate cloud environments or experiment with edge device management without needing dedicated cloud resources. Plus, k3d integrates seamlessly with k3s, so all networking and node management features, such as Flannel and WireGuard, are available without additional configuration.
+If you prefer a lightweight local development environment, k3d is an excellent option. It allows you to run k3s clusters within Docker containers, making it easy to create, manage, and test clusters directly on your local machine. However, it’s important to note that k3d can only function as a local agent node, not as a server node.
 
 ```bash
-# Set server external IP
-export EXTERNAL_IP=$(curl -sSL ifconfig.me)
-# Install on K3s master node
-k3d cluster create dev \
-  --api-port 6443 \
-  -p "443:443@loadbalancer" \
-  -p "80:80@loadbalancer" \
-  -p "51820:51820@loadbalancer" \
-  --k3s-arg "--tls-san=$EXTERNAL_IP@server:*" \
-  --k3s-arg "--node-external-ip=$EXTERNAL_IP@server:*" \
-  --k3s-arg "--flannel-backend=wireguard-native@server:*"
-# Get join token
-docker exec k3d-dev-server-0 cat /var/lib/rancher/k3s/server/node-token
-
-
 # Install on local agent node
 # EXTERNAL_IP is the public IP of master node
 K3D_FIX_DNS=0 k3d node create agent --cluster https://$EXTERNAL_IP:6443 --token <NODE_TOKEN>
