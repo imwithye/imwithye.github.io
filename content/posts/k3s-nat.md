@@ -28,7 +28,7 @@ First, install k3s on your cloud server and local agent:
 
 ```bash
 # Set server external IP
-export EXTERNAL_IP=$(curl -sSL ifconfig.me)
+export EXTERNAL_IP=$(curl -4 -sSL ifconfig.me)
 # Install on K3s master node
 curl -sfL https://get.k3s.io | sh -s - --tls-san=$EXTERNAL_IP --node-external-ip=$EXTERNAL_IP --flannel-backend=wireguard-native
 # Get join token
