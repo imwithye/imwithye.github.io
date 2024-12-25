@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>k3s on 禅心剑气相思骨</title>
+    <title>K3s on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/k3s/</link>
-    <description>Recent content in k3s on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in K3s on 禅心剑气相思骨</description>
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>K3s Cloud Master and Local Agent Setup</title>
       <link>https://yiwei.dev/posts/k3s-nat/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/k3s-nat/</guid>
-      <description>Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.
-Use Cases Local GPU Cluster: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.</description>
+      <description>&lt;p&gt;Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.&lt;/p&gt;
+&lt;h3 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Local GPU Cluster&lt;/strong&gt;: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

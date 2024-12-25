@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GitHub Actions on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/github-actions/</link>
+    <description>Recent content in GitHub Actions on 禅心剑气相思骨</description>
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2024 15:00:00 +0800</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy Self-hosted GitHub Actions Runner with ArgoCD and Akuity Platform</title>
+      <link>https://yiwei.dev/posts/arc-akuity/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/posts/arc-akuity/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt; simplifies CI/CD but can become costly with GitHub-hosted runners. Self-hosted runners offer better cost control and customization.&lt;/p&gt;
+&lt;p&gt;This post covers deploying a self-hosted runner using &lt;strong&gt;ArgoCD&lt;/strong&gt; and the &lt;strong&gt;Akuity Platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why-argocd-and-akuity-platform&#34;&gt;Why ArgoCD and Akuity Platform?&lt;/h3&gt;
+&lt;p&gt;ArgoCD ensures Kubernetes clusters align with Git-defined states, simplifying management and improving consistency. While ArgoCD is powerful, the Akuity Platform enhances it with added security, usability, and its &lt;strong&gt;KubeVision&lt;/strong&gt; tool for efficient Kubernetes resource visualization and troubleshooting.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

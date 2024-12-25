@@ -4,38 +4,55 @@
     <title>Computer Graphics on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/computer-graphics/</link>
     <description>Recent content in Computer Graphics on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/computer-graphics/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/computer-graphics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>渲染方程中的路径积分</title>
       <link>https://yiwei.dev/posts/%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A7%AF%E5%88%86/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A7%AF%E5%88%86/</guid>
-      <description>路径追踪是第一个光线传输算法，并广泛应用于Realistic Rendering中。路径追踪将渲染方程的积分式转换成一个路径积分的形式，并且通过蒙特卡洛积分方法对每一项进行积分，从而得到一个统计上无偏的渲染结果。因为路径积分的无偏属性，路径积分也常常被用作为渲染的Ground Truth，用于对比其他的渲染方法。
-渲染方程 要完全推导路径积分并且用代码表示路径积分的计算过程，我们需要从渲染方程入手。
-首先需要明确的一点是，渲染的目标是计算最终进入眼睛（摄像机）的辐射亮度（Radiance），即单位面积，单位立体角上的光通量（辐射功率）。另外一个重要的概念是辐射照度，辐照度（Irradiance），即单位面积上光通量（辐射功率）。根据几何光学的线性假设，当光射到物体表面产生反射的时候，其反射方向的辐射亮度的微分，和入射方向上辐射照度的微分成线性关系。这两者比例常数由入射角$\omega_i$和反射角$\omega_o$和物体表面属性直接给出，我们把这个函数称之为BRDF（双向反射分布函数），$f(p, \omega_i, \omega_o)$。双向反射分布函数理解起来比较具有挑战性，一个简单的方法是将其辐照度和辐亮度类比为连续型概率的中的随机变量和累积概率函数，那么累积概率函数和随机变量的微分比值，即BRDF，就是概率密度函数。
-$$dL_o(p, \omega_o) = dE(p, \omega_i) = f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$ 有了BRDF函数，我们就建立起了，对于物体表面上的一个点，点$p$，其反射的辐射亮度$L_o(p, \omega_o)$和入射的辐射亮度之间的关系，进一步的，如果我们考虑$p$上的自发光的辐射亮度$L_e(p, \omega_o)$，那我我们就可以建立起渲染方程
-$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$ 如果我们只考虑不透明反射模型，而不考虑更复杂的折射和次表面反射，那么我们的积分范围即是围绕表面法线的半球积分。
-方向积分形式和面积积分形式 从渲染方程中，对于$L_e$项是相对简单的，我们可以从物体表面材质定义获得。对于积分项，我们则需要知道每个方向的$L_i$。首先需要明确一点，在真空环境中，光在传播过程中，辐射亮度并不发生变化。对于$L_i$项来说，其就等于它来自方向的点$p&amp;rsquo;$的反射的辐射亮度。为了更好的表示这一点，我们用函数$t(p, w_i) = p&amp;rsquo;$表示。函数$t$指的是，从$p$点出发，沿着$w_i$方向，第一个相交的点，即为$p&amp;rsquo;$。由此，渲染方程可以改写为
-$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_o(t(p, \omega_i), \omega_i&#39;)cos\theta_id\omega_i$$ 然而我们无法显式定义函数$t$，于是上面这个式子就无法显式定义，对于上面函数的展开，则必然包含着一个关于函数$t$的递归项无法消除。这使得我们仅仅可能通过递归黎曼求和的形式得到积分结果，而无法使用诸如蒙特卡洛近似的方式进行数值上的快速拟合。
-为了显式改写该函数，我们重新定义一些记号，用于方更方便阅读。
-首先是反射的辐射量度和入射的辐射亮度。在光线传输过程中提到，对于真空来说，辐射亮度在传输过程中不发生变化。那么对于一个点的入射辐射亮度，即是其来自方向反射（或者自发光）的辐射亮度。于是我们是用$L(p_1, p_0)$记号替代$L_i$和$L_o$，其表示点$p_1$到点$p_0$的辐射亮度。
-同样的，BRDF方程记号我们也可以做相应的变化，我们使用$f(p_2, p_1, p_0)$表示从点$p_2$出发，击中表面点$p_1$，发生反射到达$p_0$的光路的BRDF。显然，该表达方式蕴涵了之前的立体角，从而在数学上是等价的。
-经过上面两次记号的变化，在表达式上我们已经消除了立体角$\omega$的存在，然而微分项$d\omega_i$依然存在，我们需要将该微分项同样转换为关于点的表达式。由于
-$$\omega = \frac{Acos\theta&#39;}{d^2}$$ 我们便将立体角的微分转换为对应顶点处的面积微分，为此，我们引入一个函数
-$$G(p_0, p_1) = V(p_0, p_1)\frac{|cos\theta_0||cos\theta_1|}{||p_0-p_1||^2}$$ 其中函数$V(p_0, p_1)$为可见性函数，如果两个点相互可见，则$V=1$，否则$V=0$。
-于是渲染方程可以改写为</description>
+      <description>&lt;p&gt;路径追踪是第一个光线传输算法，并广泛应用于Realistic Rendering中。路径追踪将渲染方程的积分式转换成一个路径积分的形式，并且通过蒙特卡洛积分方法对每一项进行积分，从而得到一个统计上无偏的渲染结果。因为路径积分的无偏属性，路径积分也常常被用作为渲染的Ground Truth，用于对比其他的渲染方法。&lt;/p&gt;
+&lt;h2 id=&#34;渲染方程&#34;&gt;渲染方程&lt;/h2&gt;
+&lt;p&gt;要完全推导路径积分并且用代码表示路径积分的计算过程，我们需要从渲染方程入手。&lt;/p&gt;
+&lt;p&gt;首先需要明确的一点是，渲染的目标是计算最终进入眼睛（摄像机）的辐射亮度（Radiance），即单位面积，单位立体角上的光通量（辐射功率）。另外一个重要的概念是辐射照度，辐照度（Irradiance），即单位面积上光通量（辐射功率）。根据几何光学的线性假设，当光射到物体表面产生反射的时候，其反射方向的辐射亮度的微分，和入射方向上辐射照度的微分成线性关系。这两者比例常数由入射角$\omega_i$和反射角$\omega_o$和物体表面属性直接给出，我们把这个函数称之为BRDF（双向反射分布函数），$f(p, \omega_i, \omega_o)$。双向反射分布函数理解起来比较具有挑战性，一个简单的方法是将其辐照度和辐亮度类比为连续型概率的中的随机变量和累积概率函数，那么累积概率函数和随机变量的微分比值，即BRDF，就是概率密度函数。&lt;/p&gt;
+&lt;div&gt;
+$$dL_o(p, \omega_o) = dE(p, \omega_i) = f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;有了BRDF函数，我们就建立起了，对于物体表面上的一个点，点$p$，其反射的辐射亮度$L_o(p, \omega_o)$和入射的辐射亮度之间的关系，进一步的，如果我们考虑$p$上的自发光的辐射亮度$L_e(p, \omega_o)$，那我我们就可以建立起渲染方程&lt;/p&gt;
+&lt;div&gt;
+$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;如果我们只考虑不透明反射模型，而不考虑更复杂的折射和次表面反射，那么我们的积分范围即是围绕表面法线的半球积分。&lt;/p&gt;
+&lt;h2 id=&#34;方向积分形式和面积积分形式&#34;&gt;方向积分形式和面积积分形式&lt;/h2&gt;
+&lt;p&gt;从渲染方程中，对于$L_e$项是相对简单的，我们可以从物体表面材质定义获得。对于积分项，我们则需要知道每个方向的$L_i$。首先需要明确一点，在真空环境中，光在传播过程中，辐射亮度并不发生变化。对于$L_i$项来说，其就等于它来自方向的点$p&amp;rsquo;$的反射的辐射亮度。为了更好的表示这一点，我们用函数$t(p, w_i) = p&amp;rsquo;$表示。函数$t$指的是，从$p$点出发，沿着$w_i$方向，第一个相交的点，即为$p&amp;rsquo;$。由此，渲染方程可以改写为&lt;/p&gt;
+&lt;div&gt;
+$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_o(t(p, \omega_i), \omega_i&#39;)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;然而我们无法显式定义函数$t$，于是上面这个式子就无法显式定义，对于上面函数的展开，则必然包含着一个关于函数$t$的递归项无法消除。这使得我们仅仅可能通过递归黎曼求和的形式得到积分结果，而无法使用诸如蒙特卡洛近似的方式进行数值上的快速拟合。&lt;/p&gt;
+&lt;p&gt;为了显式改写该函数，我们重新定义一些记号，用于方更方便阅读。&lt;/p&gt;
+&lt;p&gt;首先是反射的辐射量度和入射的辐射亮度。在光线传输过程中提到，对于真空来说，辐射亮度在传输过程中不发生变化。那么对于一个点的入射辐射亮度，即是其来自方向反射（或者自发光）的辐射亮度。于是我们是用$L(p_1, p_0)$记号替代$L_i$和$L_o$，其表示点$p_1$到点$p_0$的辐射亮度。&lt;/p&gt;
+&lt;p&gt;同样的，BRDF方程记号我们也可以做相应的变化，我们使用$f(p_2, p_1, p_0)$表示从点$p_2$出发，击中表面点$p_1$，发生反射到达$p_0$的光路的BRDF。显然，该表达方式蕴涵了之前的立体角，从而在数学上是等价的。&lt;/p&gt;
+&lt;p&gt;经过上面两次记号的变化，在表达式上我们已经消除了立体角$\omega$的存在，然而微分项$d\omega_i$依然存在，我们需要将该微分项同样转换为关于点的表达式。由于&lt;/p&gt;
+&lt;div&gt;
+$$\omega = \frac{Acos\theta&#39;}{d^2}$$
+&lt;/div&gt;
+&lt;p&gt;我们便将立体角的微分转换为对应顶点处的面积微分，为此，我们引入一个函数&lt;/p&gt;
+&lt;div&gt;
+$$G(p_0, p_1) = V(p_0, p_1)\frac{|cos\theta_0||cos\theta_1|}{||p_0-p_1||^2}$$
+&lt;/div&gt;
+&lt;p&gt;其中函数$V(p_0, p_1)$为可见性函数，如果两个点相互可见，则$V=1$，否则$V=0$。&lt;/p&gt;
+&lt;p&gt;于是渲染方程可以改写为&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rendering Equation</title>
       <link>https://yiwei.dev/posts/rendering-equation/</link>
       <pubDate>Sun, 12 Jul 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/rendering-equation/</guid>
-      <description> Presentation of Rendering Equation </description>
+      <description>&lt;iframe src=&#34;https://onedrive.live.com/embed?resid=3B28EE8BB218C5BA%2136170&amp;amp;authkey=!AJTAvgfb5YoYD8c&amp;amp;em=2&amp;amp;wdAr=1.7777777777777777&#34; style=&#34;width: 100%; aspect-ratio: 4/3;&#34; frameborder=&#34;0&#34;&gt;
+    Presentation of Rendering Equation
+&lt;/iframe&gt;</description>
     </item>
-    
   </channel>
 </rss>

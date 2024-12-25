@@ -4,19 +4,32 @@
     <title>MATLAB on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/matlab/</link>
     <description>Recent content in MATLAB on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>单目视觉vSLAM</title>
       <link>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</guid>
-      <description>Matlab 官方提供了完整的单目视觉 vSLAM 的 pipeline，https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html。这里对 Matlab 的这边文章的关键点做一个笔记和讨论，具体的实现可以参考原文文档。
-初始化数据集 Matlab 提供了imageDatastore类用于初始化图像存储集合，其接受一个图像的文件夹路径的参数。
-imageFolder = [dataFolder,&amp;#39;rgbd_dataset_freiburg3_long_office_household/rgb/&amp;#39;]; imds = imageDatastore(imageFolder); 初始化地图 在 SLAM 管线中，首先我们应该对相机进行标定，相机标定可以用Computer Vision 工具箱中的相机标定工具。如果预先知道了相机的内参，可以通过cameraIntrinsics类直接进行初始化。
-% Create a cameraIntrinsics object to store the camera intrinsic parameters. % The intrinsics for the dataset can be found at the following page: % https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats % Note that the images in the dataset are already undistorted, hence there % is no need to specify the distortion coefficients. focalLength = [535.</description>
+      <description>&lt;p&gt;Matlab 官方提供了完整的单目视觉 vSLAM 的 pipeline，&lt;a href=&#34;https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html&#34;&gt;https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html&lt;/a&gt;。这里对 Matlab 的这边文章的关键点做一个笔记和讨论，具体的实现可以参考原文文档。&lt;/p&gt;
+&lt;h2 id=&#34;初始化数据集&#34;&gt;初始化数据集&lt;/h2&gt;
+&lt;p&gt;Matlab 提供了&lt;code&gt;imageDatastore&lt;/code&gt;类用于初始化图像存储集合，其接受一个图像的文件夹路径的参数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imageFolder   = [dataFolder,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;rgbd_dataset_freiburg3_long_office_household/rgb/&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imds          = imageDatastore(imageFolder);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化地图&#34;&gt;初始化地图&lt;/h2&gt;
+&lt;p&gt;在 SLAM 管线中，首先我们应该对相机进行标定，相机标定可以用&lt;a href=&#34;https://www.mathworks.com/products/computer-vision.html&#34;&gt;Computer Vision 工具箱&lt;/a&gt;中的相机标定工具。如果预先知道了相机的内参，可以通过&lt;code&gt;cameraIntrinsics&lt;/code&gt;类直接进行初始化。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Create a cameraIntrinsics object to store the camera intrinsic parameters.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% The intrinsics for the dataset can be found at the following page:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Note that the images in the dataset are already undistorted, hence there&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% is no need to specify the distortion coefficients.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;focalLength    = [&lt;span style=&#34;color:#ae81ff&#34;&gt;535.4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;539.2&lt;/span&gt;];     &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;principalPoint = [&lt;span style=&#34;color:#ae81ff&#34;&gt;320.1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;247.6&lt;/span&gt;];     &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imageSize      = size(currI,[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]);  &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;intrinsics     = cameraIntrinsics(focalLength, principalPoint, imageSize);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在例子中使用的数据集已经提供了相机的标定参数，我们可以直接使用。注意，对于一般相机获取到的照片来说，我们应该进行照片的去畸变，Matlab 提供了去畸变函数&lt;code&gt;undistortImage&lt;/code&gt;，具体用法如下&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

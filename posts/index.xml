@@ -4,316 +4,371 @@
     <title>Posts on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/posts/</link>
     <description>Recent content in Posts on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2024 15:00:00 +0800</lastBuildDate>
+    <atom:link href="https://yiwei.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy Self-hosted GitHub Actions Runner with ArgoCD and Akuity Platform</title>
+      <link>https://yiwei.dev/posts/arc-akuity/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/posts/arc-akuity/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt; simplifies CI/CD but can become costly with GitHub-hosted runners. Self-hosted runners offer better cost control and customization.&lt;/p&gt;
+&lt;p&gt;This post covers deploying a self-hosted runner using &lt;strong&gt;ArgoCD&lt;/strong&gt; and the &lt;strong&gt;Akuity Platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why-argocd-and-akuity-platform&#34;&gt;Why ArgoCD and Akuity Platform?&lt;/h3&gt;
+&lt;p&gt;ArgoCD ensures Kubernetes clusters align with Git-defined states, simplifying management and improving consistency. While ArgoCD is powerful, the Akuity Platform enhances it with added security, usability, and its &lt;strong&gt;KubeVision&lt;/strong&gt; tool for efficient Kubernetes resource visualization and troubleshooting.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>K3s Cloud Master and Local Agent Setup</title>
       <link>https://yiwei.dev/posts/k3s-nat/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/k3s-nat/</guid>
-      <description>Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.
-Use Cases Local GPU Cluster: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.</description>
+      <description>&lt;p&gt;Setting up a cloud-based k3s master node with local agent nodes allows for easy management of distributed infrastructure. This setup is ideal for scenarios such as integrating a local GPU cluster or managing edge devices like vending machines, ensuring stable network connectivity without the need for additional software.&lt;/p&gt;
+&lt;h3 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Local GPU Cluster&lt;/strong&gt;: You can add your local GPU cluster as a worker node to the cloud k3s master, enabling centralized scheduling of complex tasks without worrying about network issues.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process</title>
       <link>https://yiwei.dev/posts/github-flow/</link>
       <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/github-flow/</guid>
-      <description>Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process Introduction In our company, we originally adopted the GitFlow model for our development workflow. This model served us well, facilitating a structured approach to feature development, release management, and hotfixes. However, with the introduction of GitHub and its powerful pull request (PR) workflow, we decided to transition to a more integrated system. This blog post outlines our journey, the challenges we faced, and the solutions we implemented to streamline our development process.</description>
+      <description>&lt;h1 id=&#34;transitioning-from-gitflow-to-github-pr-workflow-a-journey-in-streamlining-our-development-process&#34;&gt;Transitioning from GitFlow to GitHub PR Workflow: A Journey in Streamlining Our Development Process&lt;/h1&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In our company, we originally adopted the GitFlow model for our development workflow. This model served us well, facilitating a structured approach to feature development, release management, and hotfixes. However, with the introduction of GitHub and its powerful pull request (PR) workflow, we decided to transition to a more integrated system. This blog post outlines our journey, the challenges we faced, and the solutions we implemented to streamline our development process.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>非线性优化 - Ceres Solver</title>
-      <link>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</link>
+      <link>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/</link>
       <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</guid>
-      <description>我们考虑这个优化问题：
-$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
-$$ \text{s.t.} \quad l_j \le x_j \le u_j $$
-这个问题又称为非线性最小二乘问题。
-具体来说，我们寻找$x$的最小值，并且$x$满足了约束$l_j \le x_j \le u_j$，使得函数$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$的和最小。我们又把$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$称之为残差块（ResidualBlock），$f_i (x_{i_1}, &amp;hellip; ,x_{i_k})$成为代价函数（CostFunction），且依赖于$x_i$。$x_i$称为参数块（ParameterBlock）。同时参数块受到了$l_i$和$u_i$的约束。
-特别的这里的$\rho_i$称为损失函数（LossFunction），用于减少外值对解的影响。
-特别的，当我们的$\rho_i = f(x) = x$且上下界都为无穷大时，我们的问题简化为:
-$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
-一个最简单的例子 我们考虑优化一个函数：
-$$ \frac{1}{2}(10-x)^2 $$
-我们用Ceres Solver来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数
-struct CostFunctor { template &amp;lt;typename T&amp;gt; bool operator()(const T* const x, T* residual) const { residual[0] = 10.</description>
+      <guid>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/</guid>
+      <description>&lt;p&gt;我们考虑这个优化问题：&lt;/p&gt;
+&lt;p&gt;$$
+\min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\text{s.t.} \quad l_j \le x_j \le u_j
+$$&lt;/p&gt;
+&lt;p&gt;这个问题又称为&lt;strong&gt;非线性最小二乘&lt;/strong&gt;问题。&lt;/p&gt;
+&lt;p&gt;具体来说，我们寻找$x$的最小值，并且$x$满足了约束$l_j \le x_j \le u_j$，使得函数$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$的和最小。我们又把$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$称之为&lt;strong&gt;残差块（ResidualBlock）&lt;/strong&gt;，$f_i (x_{i_1}, &amp;hellip; ,x_{i_k})$成为&lt;strong&gt;代价函数（CostFunction）&lt;/strong&gt;，且依赖于$x_i$。$x_i$称为&lt;strong&gt;参数块（ParameterBlock）&lt;/strong&gt;。同时参数块受到了$l_i$和$u_i$的约束。&lt;/p&gt;
+&lt;p&gt;特别的这里的$\rho_i$称为&lt;strong&gt;损失函数（LossFunction）&lt;/strong&gt;，用于减少外值对解的影响。&lt;/p&gt;
+&lt;p&gt;特别的，当我们的$\rho_i = f(x) = x$且上下界都为无穷大时，我们的问题简化为:&lt;/p&gt;
+&lt;p&gt;$$
+\min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;一个最简单的例子&#34;&gt;一个最简单的例子&lt;/h2&gt;
+&lt;p&gt;我们考虑优化一个函数：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{1}{2}(10-x)^2
+$$&lt;/p&gt;
+&lt;p&gt;我们用&lt;code&gt;Ceres Solver&lt;/code&gt;来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CostFunctor&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typename&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;operator&lt;/span&gt;()(&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; x, T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; residual) &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        residual[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10.0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; x[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在我们可以解决这个优化问题：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>单目视觉vSLAM</title>
       <link>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%8D%95%E6%95%B0%E8%A7%86%E8%A7%89vslam/</guid>
-      <description>Matlab 官方提供了完整的单目视觉 vSLAM 的 pipeline，https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html。这里对 Matlab 的这边文章的关键点做一个笔记和讨论，具体的实现可以参考原文文档。
-初始化数据集 Matlab 提供了imageDatastore类用于初始化图像存储集合，其接受一个图像的文件夹路径的参数。
-imageFolder = [dataFolder,&amp;#39;rgbd_dataset_freiburg3_long_office_household/rgb/&amp;#39;]; imds = imageDatastore(imageFolder); 初始化地图 在 SLAM 管线中，首先我们应该对相机进行标定，相机标定可以用Computer Vision 工具箱中的相机标定工具。如果预先知道了相机的内参，可以通过cameraIntrinsics类直接进行初始化。
-% Create a cameraIntrinsics object to store the camera intrinsic parameters. % The intrinsics for the dataset can be found at the following page: % https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats % Note that the images in the dataset are already undistorted, hence there % is no need to specify the distortion coefficients. focalLength = [535.</description>
+      <description>&lt;p&gt;Matlab 官方提供了完整的单目视觉 vSLAM 的 pipeline，&lt;a href=&#34;https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html&#34;&gt;https://www.mathworks.com/help/vision/ug/monocular-visual-simultaneous-localization-and-mapping.html&lt;/a&gt;。这里对 Matlab 的这边文章的关键点做一个笔记和讨论，具体的实现可以参考原文文档。&lt;/p&gt;
+&lt;h2 id=&#34;初始化数据集&#34;&gt;初始化数据集&lt;/h2&gt;
+&lt;p&gt;Matlab 提供了&lt;code&gt;imageDatastore&lt;/code&gt;类用于初始化图像存储集合，其接受一个图像的文件夹路径的参数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imageFolder   = [dataFolder,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;rgbd_dataset_freiburg3_long_office_household/rgb/&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imds          = imageDatastore(imageFolder);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化地图&#34;&gt;初始化地图&lt;/h2&gt;
+&lt;p&gt;在 SLAM 管线中，首先我们应该对相机进行标定，相机标定可以用&lt;a href=&#34;https://www.mathworks.com/products/computer-vision.html&#34;&gt;Computer Vision 工具箱&lt;/a&gt;中的相机标定工具。如果预先知道了相机的内参，可以通过&lt;code&gt;cameraIntrinsics&lt;/code&gt;类直接进行初始化。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Create a cameraIntrinsics object to store the camera intrinsic parameters.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% The intrinsics for the dataset can be found at the following page:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Note that the images in the dataset are already undistorted, hence there&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% is no need to specify the distortion coefficients.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;focalLength    = [&lt;span style=&#34;color:#ae81ff&#34;&gt;535.4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;539.2&lt;/span&gt;];     &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;principalPoint = [&lt;span style=&#34;color:#ae81ff&#34;&gt;320.1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;247.6&lt;/span&gt;];     &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;imageSize      = size(currI,[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]);  &lt;span style=&#34;color:#75715e&#34;&gt;% in units of pixels&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;intrinsics     = cameraIntrinsics(focalLength, principalPoint, imageSize);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在例子中使用的数据集已经提供了相机的标定参数，我们可以直接使用。注意，对于一般相机获取到的照片来说，我们应该进行照片的去畸变，Matlab 提供了去畸变函数&lt;code&gt;undistortImage&lt;/code&gt;，具体用法如下&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>基于TinyTex的中文本地Tex环境</title>
       <link>https://yiwei.dev/posts/%E5%9F%BA%E4%BA%8Etinytex%E7%9A%84%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0tex%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%9F%BA%E4%BA%8Etinytex%E7%9A%84%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0tex%E7%8E%AF%E5%A2%83/</guid>
-      <description>在TinyTex之前，我已经换过无数个排版工具。从最开始的Word，到Pages，再到基于Markdown开发的MWeb和Ulysses。我很喜欢Ulysses，因为他既支持Markdown，又通过MathJax支持了LaTex语法。但是Markdown的排版能力还是非常有限的，尤其是theorem库的缺乏，Markdown只能作为一个快速笔记软件使用。
-后来，我一直在使用Overleaf，不得不说Overleaf是一个非常不错的项目，至今市面上都没有更好的替代品。这也导致Overleaf的价格非常高，甚至学生价格都很高。作为一个研究生和普通的程序员的低频用户，肯定无法为这么高昂的价格付费。而单单免费版本，则又缺乏了类似GitHub同步之类的功能。之所以使用LaTex排版而不是Word，最大原因之一就是LaTex对Git优化，连Git都无法用了，Overleaf实在没有更多吸引我的地方。
-之后，我同样使用了一些第三方的LaTex环境。比如在macOS上很好用的Texifier。Texifier这个项目不得不说也是花了很多心思，但可以看得出团队的预算不足，很多地方存在设计的瑕疵和开发的Bug。而且作为一款编辑器来说，他实在算不上功能强大。只不过在LaTex的开箱即用上面，至少做到了顺手。
-我还使用了MacTex（或者是Tex Live）+ VScode + LaTex Workshop，从易用性到编辑器的熟悉程度以及到各种细节小问题的处理上，这一套方案基本是最佳方案，唯一的遗憾是庞大的MacTex和墙内的渣网速。在调研搜索过程中，看到了TinyTex这个发行版，TinyTex又有R语言的R Markdown背书，从文件大小到稳定性基本都满足了一个基本的Tex排版要求。
-1. 下载TinyTex二进制发行版 TinyTex的发行版可以直接从GitHub, https://github.com/rstudio/tinytex-releases下载获得。我下载的是TinyTeX版本，TinyTeX-2的体积过于庞大，TinyTeX-1和TinyTeX-0的预置package又太少。
-下载完成后解压缩放到任意文件夹下，并且将bin目录添加到PATH变量中。我是用的是macOS，因此我的PATH为
-export PATH=$PATH:$HOME/TinyTeX/bin/universal-darwin 2. 更新tlmgr源和安装中文支持 设置好环境变量后，重启终端就可以访问tlmgr。为了在国内更快的访问速度，可以修改tlmgr源为清华源，执行
-tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet 然后安装ctex包获得中文支持
-tlmgr install ctex 3. 安装VScode + LaTex Workshop 在VScode中安装LaTex Workshop插件，安装成功后打开任意tex文件就可以愉快的书写啦。
-对于中文支持，可以使用CJKutf8
-\documentclass{article} \usepackage{CJKutf8} \begin{document} \begin{CJK*}{UTF8}{gbsn} \section{前言} \section{关于数学部分} 数学、中英文皆可以混排。You can intersperse math, Chinese and English (Latin script) without adding extra environments. \end{CJK*} \bigskip %% Just some white space You can also insert Latin text in your document \bigskip %% Just some white space \begin{CJK*}{UTF8}{bsmi} 這是繁體中文。 \end{CJK*} \end{document} 进行中英文混排。</description>
+      <description>&lt;p&gt;在TinyTex之前，我已经换过无数个排版工具。从最开始的Word，到Pages，再到基于Markdown开发的MWeb和Ulysses。我很喜欢Ulysses，因为他既支持Markdown，又通过MathJax支持了LaTex语法。但是Markdown的排版能力还是非常有限的，尤其是&lt;code&gt;theorem&lt;/code&gt;库的缺乏，Markdown只能作为一个快速笔记软件使用。&lt;/p&gt;
+&lt;p&gt;后来，我一直在使用Overleaf，不得不说Overleaf是一个非常不错的项目，至今市面上都没有更好的替代品。这也导致Overleaf的价格非常高，甚至学生价格都很高。作为一个研究生和普通的程序员的低频用户，肯定无法为这么高昂的价格付费。而单单免费版本，则又缺乏了类似GitHub同步之类的功能。之所以使用LaTex排版而不是Word，最大原因之一就是LaTex对Git优化，连Git都无法用了，Overleaf实在没有更多吸引我的地方。&lt;/p&gt;
+&lt;p&gt;之后，我同样使用了一些第三方的LaTex环境。比如在macOS上很好用的Texifier。Texifier这个项目不得不说也是花了很多心思，但可以看得出团队的预算不足，很多地方存在设计的瑕疵和开发的Bug。而且作为一款编辑器来说，他实在算不上功能强大。只不过在LaTex的开箱即用上面，至少做到了顺手。&lt;/p&gt;
+&lt;p&gt;我还使用了MacTex（或者是Tex Live）+ VScode + LaTex Workshop，从易用性到编辑器的熟悉程度以及到各种细节小问题的处理上，这一套方案基本是最佳方案，唯一的遗憾是庞大的MacTex和墙内的渣网速。在调研搜索过程中，看到了TinyTex这个发行版，TinyTex又有R语言的R Markdown背书，从文件大小到稳定性基本都满足了一个基本的Tex排版要求。&lt;/p&gt;
+&lt;h2 id=&#34;1-下载tinytex二进制发行版&#34;&gt;1. 下载TinyTex二进制发行版&lt;/h2&gt;
+&lt;p&gt;TinyTex的发行版可以直接从GitHub, &lt;a href=&#34;https://github.com/rstudio/tinytex-releases&#34;&gt;https://github.com/rstudio/tinytex-releases&lt;/a&gt;下载获得。我下载的是&lt;code&gt;TinyTeX&lt;/code&gt;版本，&lt;code&gt;TinyTeX-2&lt;/code&gt;的体积过于庞大，&lt;code&gt;TinyTeX-1&lt;/code&gt;和&lt;code&gt;TinyTeX-0&lt;/code&gt;的预置package又太少。&lt;/p&gt;
+&lt;p&gt;下载完成后解压缩放到任意文件夹下，并且将&lt;code&gt;bin&lt;/code&gt;目录添加到&lt;code&gt;PATH&lt;/code&gt;变量中。我是用的是macOS，因此我的&lt;code&gt;PATH&lt;/code&gt;为&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:$HOME/TinyTeX/bin/universal-darwin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-更新tlmgr源和安装中文支持&#34;&gt;2. 更新&lt;code&gt;tlmgr&lt;/code&gt;源和安装中文支持&lt;/h2&gt;
+&lt;p&gt;设置好环境变量后，重启终端就可以访问&lt;code&gt;tlmgr&lt;/code&gt;。为了在国内更快的访问速度，可以修改&lt;code&gt;tlmgr&lt;/code&gt;源为清华源，执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后安装&lt;code&gt;ctex&lt;/code&gt;包获得中文支持&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr install ctex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-安装vscode--latex-workshop&#34;&gt;3. 安装VScode + LaTex Workshop&lt;/h2&gt;
+&lt;p&gt;在VScode中安装LaTex Workshop插件，安装成功后打开任意&lt;code&gt;tex&lt;/code&gt;文件就可以愉快的书写啦。&lt;/p&gt;
+&lt;p&gt;对于中文支持，可以使用&lt;code&gt;CJKutf8&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;{article}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{CJKutf8}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{CJK*}{UTF8}{gbsn}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{前言}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{关于数学部分}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;数学、中英文皆可以混排。You can intersperse math, Chinese and English (Latin script) without adding extra environments.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{CJK*}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\bigskip&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;%% Just some white space
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;You can also insert Latin text in your document
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\bigskip&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;%% Just some white space
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{CJK*}{UTF8}{bsmi}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;這是繁體中文。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{CJK*}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进行中英文混排。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>渲染方程中的路径积分</title>
       <link>https://yiwei.dev/posts/%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A7%AF%E5%88%86/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84%E7%A7%AF%E5%88%86/</guid>
-      <description>路径追踪是第一个光线传输算法，并广泛应用于Realistic Rendering中。路径追踪将渲染方程的积分式转换成一个路径积分的形式，并且通过蒙特卡洛积分方法对每一项进行积分，从而得到一个统计上无偏的渲染结果。因为路径积分的无偏属性，路径积分也常常被用作为渲染的Ground Truth，用于对比其他的渲染方法。
-渲染方程 要完全推导路径积分并且用代码表示路径积分的计算过程，我们需要从渲染方程入手。
-首先需要明确的一点是，渲染的目标是计算最终进入眼睛（摄像机）的辐射亮度（Radiance），即单位面积，单位立体角上的光通量（辐射功率）。另外一个重要的概念是辐射照度，辐照度（Irradiance），即单位面积上光通量（辐射功率）。根据几何光学的线性假设，当光射到物体表面产生反射的时候，其反射方向的辐射亮度的微分，和入射方向上辐射照度的微分成线性关系。这两者比例常数由入射角$\omega_i$和反射角$\omega_o$和物体表面属性直接给出，我们把这个函数称之为BRDF（双向反射分布函数），$f(p, \omega_i, \omega_o)$。双向反射分布函数理解起来比较具有挑战性，一个简单的方法是将其辐照度和辐亮度类比为连续型概率的中的随机变量和累积概率函数，那么累积概率函数和随机变量的微分比值，即BRDF，就是概率密度函数。
-$$dL_o(p, \omega_o) = dE(p, \omega_i) = f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$ 有了BRDF函数，我们就建立起了，对于物体表面上的一个点，点$p$，其反射的辐射亮度$L_o(p, \omega_o)$和入射的辐射亮度之间的关系，进一步的，如果我们考虑$p$上的自发光的辐射亮度$L_e(p, \omega_o)$，那我我们就可以建立起渲染方程
-$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$ 如果我们只考虑不透明反射模型，而不考虑更复杂的折射和次表面反射，那么我们的积分范围即是围绕表面法线的半球积分。
-方向积分形式和面积积分形式 从渲染方程中，对于$L_e$项是相对简单的，我们可以从物体表面材质定义获得。对于积分项，我们则需要知道每个方向的$L_i$。首先需要明确一点，在真空环境中，光在传播过程中，辐射亮度并不发生变化。对于$L_i$项来说，其就等于它来自方向的点$p&amp;rsquo;$的反射的辐射亮度。为了更好的表示这一点，我们用函数$t(p, w_i) = p&amp;rsquo;$表示。函数$t$指的是，从$p$点出发，沿着$w_i$方向，第一个相交的点，即为$p&amp;rsquo;$。由此，渲染方程可以改写为
-$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_o(t(p, \omega_i), \omega_i&#39;)cos\theta_id\omega_i$$ 然而我们无法显式定义函数$t$，于是上面这个式子就无法显式定义，对于上面函数的展开，则必然包含着一个关于函数$t$的递归项无法消除。这使得我们仅仅可能通过递归黎曼求和的形式得到积分结果，而无法使用诸如蒙特卡洛近似的方式进行数值上的快速拟合。
-为了显式改写该函数，我们重新定义一些记号，用于方更方便阅读。
-首先是反射的辐射量度和入射的辐射亮度。在光线传输过程中提到，对于真空来说，辐射亮度在传输过程中不发生变化。那么对于一个点的入射辐射亮度，即是其来自方向反射（或者自发光）的辐射亮度。于是我们是用$L(p_1, p_0)$记号替代$L_i$和$L_o$，其表示点$p_1$到点$p_0$的辐射亮度。
-同样的，BRDF方程记号我们也可以做相应的变化，我们使用$f(p_2, p_1, p_0)$表示从点$p_2$出发，击中表面点$p_1$，发生反射到达$p_0$的光路的BRDF。显然，该表达方式蕴涵了之前的立体角，从而在数学上是等价的。
-经过上面两次记号的变化，在表达式上我们已经消除了立体角$\omega$的存在，然而微分项$d\omega_i$依然存在，我们需要将该微分项同样转换为关于点的表达式。由于
-$$\omega = \frac{Acos\theta&#39;}{d^2}$$ 我们便将立体角的微分转换为对应顶点处的面积微分，为此，我们引入一个函数
-$$G(p_0, p_1) = V(p_0, p_1)\frac{|cos\theta_0||cos\theta_1|}{||p_0-p_1||^2}$$ 其中函数$V(p_0, p_1)$为可见性函数，如果两个点相互可见，则$V=1$，否则$V=0$。
-于是渲染方程可以改写为</description>
+      <description>&lt;p&gt;路径追踪是第一个光线传输算法，并广泛应用于Realistic Rendering中。路径追踪将渲染方程的积分式转换成一个路径积分的形式，并且通过蒙特卡洛积分方法对每一项进行积分，从而得到一个统计上无偏的渲染结果。因为路径积分的无偏属性，路径积分也常常被用作为渲染的Ground Truth，用于对比其他的渲染方法。&lt;/p&gt;
+&lt;h2 id=&#34;渲染方程&#34;&gt;渲染方程&lt;/h2&gt;
+&lt;p&gt;要完全推导路径积分并且用代码表示路径积分的计算过程，我们需要从渲染方程入手。&lt;/p&gt;
+&lt;p&gt;首先需要明确的一点是，渲染的目标是计算最终进入眼睛（摄像机）的辐射亮度（Radiance），即单位面积，单位立体角上的光通量（辐射功率）。另外一个重要的概念是辐射照度，辐照度（Irradiance），即单位面积上光通量（辐射功率）。根据几何光学的线性假设，当光射到物体表面产生反射的时候，其反射方向的辐射亮度的微分，和入射方向上辐射照度的微分成线性关系。这两者比例常数由入射角$\omega_i$和反射角$\omega_o$和物体表面属性直接给出，我们把这个函数称之为BRDF（双向反射分布函数），$f(p, \omega_i, \omega_o)$。双向反射分布函数理解起来比较具有挑战性，一个简单的方法是将其辐照度和辐亮度类比为连续型概率的中的随机变量和累积概率函数，那么累积概率函数和随机变量的微分比值，即BRDF，就是概率密度函数。&lt;/p&gt;
+&lt;div&gt;
+$$dL_o(p, \omega_o) = dE(p, \omega_i) = f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;有了BRDF函数，我们就建立起了，对于物体表面上的一个点，点$p$，其反射的辐射亮度$L_o(p, \omega_o)$和入射的辐射亮度之间的关系，进一步的，如果我们考虑$p$上的自发光的辐射亮度$L_e(p, \omega_o)$，那我我们就可以建立起渲染方程&lt;/p&gt;
+&lt;div&gt;
+$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_i(p, \omega_i)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;如果我们只考虑不透明反射模型，而不考虑更复杂的折射和次表面反射，那么我们的积分范围即是围绕表面法线的半球积分。&lt;/p&gt;
+&lt;h2 id=&#34;方向积分形式和面积积分形式&#34;&gt;方向积分形式和面积积分形式&lt;/h2&gt;
+&lt;p&gt;从渲染方程中，对于$L_e$项是相对简单的，我们可以从物体表面材质定义获得。对于积分项，我们则需要知道每个方向的$L_i$。首先需要明确一点，在真空环境中，光在传播过程中，辐射亮度并不发生变化。对于$L_i$项来说，其就等于它来自方向的点$p&amp;rsquo;$的反射的辐射亮度。为了更好的表示这一点，我们用函数$t(p, w_i) = p&amp;rsquo;$表示。函数$t$指的是，从$p$点出发，沿着$w_i$方向，第一个相交的点，即为$p&amp;rsquo;$。由此，渲染方程可以改写为&lt;/p&gt;
+&lt;div&gt;
+$$L_o(p, \omega_o) = L_e(p, \omega_o) + \int f(p, \omega_i, \omega_o)L_o(t(p, \omega_i), \omega_i&#39;)cos\theta_id\omega_i$$
+&lt;/div&gt;
+&lt;p&gt;然而我们无法显式定义函数$t$，于是上面这个式子就无法显式定义，对于上面函数的展开，则必然包含着一个关于函数$t$的递归项无法消除。这使得我们仅仅可能通过递归黎曼求和的形式得到积分结果，而无法使用诸如蒙特卡洛近似的方式进行数值上的快速拟合。&lt;/p&gt;
+&lt;p&gt;为了显式改写该函数，我们重新定义一些记号，用于方更方便阅读。&lt;/p&gt;
+&lt;p&gt;首先是反射的辐射量度和入射的辐射亮度。在光线传输过程中提到，对于真空来说，辐射亮度在传输过程中不发生变化。那么对于一个点的入射辐射亮度，即是其来自方向反射（或者自发光）的辐射亮度。于是我们是用$L(p_1, p_0)$记号替代$L_i$和$L_o$，其表示点$p_1$到点$p_0$的辐射亮度。&lt;/p&gt;
+&lt;p&gt;同样的，BRDF方程记号我们也可以做相应的变化，我们使用$f(p_2, p_1, p_0)$表示从点$p_2$出发，击中表面点$p_1$，发生反射到达$p_0$的光路的BRDF。显然，该表达方式蕴涵了之前的立体角，从而在数学上是等价的。&lt;/p&gt;
+&lt;p&gt;经过上面两次记号的变化，在表达式上我们已经消除了立体角$\omega$的存在，然而微分项$d\omega_i$依然存在，我们需要将该微分项同样转换为关于点的表达式。由于&lt;/p&gt;
+&lt;div&gt;
+$$\omega = \frac{Acos\theta&#39;}{d^2}$$
+&lt;/div&gt;
+&lt;p&gt;我们便将立体角的微分转换为对应顶点处的面积微分，为此，我们引入一个函数&lt;/p&gt;
+&lt;div&gt;
+$$G(p_0, p_1) = V(p_0, p_1)\frac{|cos\theta_0||cos\theta_1|}{||p_0-p_1||^2}$$
+&lt;/div&gt;
+&lt;p&gt;其中函数$V(p_0, p_1)$为可见性函数，如果两个点相互可见，则$V=1$，否则$V=0$。&lt;/p&gt;
+&lt;p&gt;于是渲染方程可以改写为&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>《动物庄园》自由和平等的谎言引发的独裁</title>
       <link>https://yiwei.dev/posts/%E5%8A%A8%E7%89%A9%E5%BA%84%E5%9B%AD%E8%87%AA%E7%94%B1%E5%92%8C%E5%B9%B3%E7%AD%89%E7%9A%84%E8%B0%8E%E8%A8%80%E5%BC%95%E5%8F%91%E7%9A%84%E7%8B%AC%E8%A3%81/</link>
       <pubDate>Thu, 24 Dec 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%8A%A8%E7%89%A9%E5%BA%84%E5%9B%AD%E8%87%AA%E7%94%B1%E5%92%8C%E5%B9%B3%E7%AD%89%E7%9A%84%E8%B0%8E%E8%A8%80%E5%BC%95%E5%8F%91%E7%9A%84%E7%8B%AC%E8%A3%81/</guid>
-      <description>一部小说描述的是故事情节，一则寓言揭示的是事物的本质。《动物庄园》出版于1945年，值二战胜利前夕。作者乔治.奥威尔在书中描写了一只猪引发的革命，随着时间推移，革命开始退化为独裁统治，并最终失败。
-推想革命失败的原因，有人说是独裁政治，有人说是极权主义，这些当然是革命失败的显然因素。然而这巨大的不幸却一早就隐藏在了自由和平等的巨大谎言中。动物们的革命动力来自于老麦哲的美好愿景。肥沃的土地，丰富的食物，整个庄园都是欣欣向荣的样子。老麦哲宣告，推翻人类统治，建立一个自由与平等的庄园。动物们坚定不移的相信，自由和平等带来的是美好的一切，是没有压迫没有剥削的乌托邦的社会。
-然而现实并不是如此。整一个自然界中永远不会存在自由和平等。无论是残忍的生存法则，还是一条条的生物链，都昭示着自然界对自由和平等嗤之以鼻。没有任何理由能说明为什么老虎可以吃别的动物，也没有任何原因可以解释为什么蚂蚁天生就弱小，被其他动物欺凌。动物们所谓的自由和平等绝不会催生出一个乌托邦一般美好的社会，而他们的信仰却成为独裁者的欺世的谎言。正如书中的动物们，他们不断被聪明狡诈的猪们威胁说，“你们可不想琼斯先生回来吧。要是琼斯先生回来，我们就再也不会有自由”。动物们都害怕失去自由，然而动物们却都不知道到底什么是自由，谁也无法定义什么是人人平等。所有人知道的，便是记着老麦哲的美好愿景，他们误以为，那是自由和平等带来的未来。这样不明就里的相信，使得信仰变成了统治者统治的工具，信心成为独裁者控制的最佳法器。
-反过来问，我们的世界是否要自由和平等。需要的！我们需要的自由是一套完整制度，完整法令保护下的人格的独立。法国大革命《人权宣言》对自由的定义是：“自由即有权做一切无害于他人的任何事情。”在二战中，罗斯福提出了四大自由：“言论自由，信仰自由，免于匮乏的自由和免于恐惧的自由。”在联合国人权宣言中，四大自由被重申。反观《动物庄园》中动物们的自由，却哪里找得到言论，信仰，免于匮乏和恐惧的自由。反而较之以前，动物们被更多的剥削，这一点从鸡们被麦哲伦要求上缴更多的鸡蛋就可以看出。但是具有讽刺的是，动物们并没有马上意识到自己被愚弄，动物们心中所想的事，反而是需要更加努力的工作。比如Boxer就是一个典型的例子，他从最开始和小公鸡约定要提前半小时起床工作到后来的提前一个小时提前工作。Boxer是革命的忠实拥护者，他小心翼翼的维护者革命的成果，他更加是自由和平等的拥护者。但是正因为他的固执地坚信老麦哲的政治思想——即自由会带来丰收，而无人类的约束即是最大的自由。他的固执使得他深受毒害，最终也造成了他惨死悲剧。
-作为寓言故事，《动物庄园》影射了当时俄国从十月革命到1940年的历史过程。其实在现实过程中，不乏这样的革命者。中国历史上垒起呐喊着消灭暴政的各样农民起义，最终沦为新的苛政。而作为革命的主题的农民们，依然把持着美好的愿景，甘心的被奴役。着眼于中国现代史，这样的事件也屡见不鲜。革命者曲解社会主义，塑造了共产主义的美好愿景，却直接导致了大跃进等经济上的严重倒退。
-那么我们需要什么样的自由和平等？动物们所需要的，不仅仅是一个美好的愿景，不仅仅是一场革命，不仅仅是推翻一个领袖，不仅仅是七戒这样的一张宣言，更不仅仅是一个能带领动物们走向自由的麦哲伦一般的领袖。他们需要的是一套制度以及能使这套制度运行的动力。而动物们所想的自由，所想的美好愿景，是这一套法律能够给予保护的人格的独立。动物们需要的是一套法案，他规范了所有动物的职责，任何超越这些职责的动物都应当受到谴责。他限制了所有人的职能，没有一个人——比如麦哲伦——可以独断的决定一切。当然动物们还需要的是带动整个社会运作的动力。从动物们的风车计划就可以看出动物们并没有能力支撑起他们小小庄园的运作。他们松散的结构根本无法供给自身。这样一个缺乏能量来源的乌托邦社会，最终沦为麦哲伦手中的玩物，和人类大摇大摆的做起交易，并安上了一个救世主的美名。
-我们无比渴望自由，但是正如孙中山先生所说，这个世界上没有绝对的自由。在此告诫改革者们，即使是一套有漏洞有缺陷的制度，也远远比假大空的空想愿景更好。</description>
+      <description>&lt;p&gt;一部小说描述的是故事情节，一则寓言揭示的是事物的本质。《动物庄园》出版于1945年，值二战胜利前夕。作者乔治.奥威尔在书中描写了一只猪引发的革命，随着时间推移，革命开始退化为独裁统治，并最终失败。&lt;/p&gt;
+&lt;p&gt;推想革命失败的原因，有人说是独裁政治，有人说是极权主义，这些当然是革命失败的显然因素。然而这巨大的不幸却一早就隐藏在了自由和平等的巨大谎言中。动物们的革命动力来自于老麦哲的美好愿景。肥沃的土地，丰富的食物，整个庄园都是欣欣向荣的样子。老麦哲宣告，推翻人类统治，建立一个自由与平等的庄园。动物们坚定不移的相信，自由和平等带来的是美好的一切，是没有压迫没有剥削的乌托邦的社会。&lt;/p&gt;
+&lt;p&gt;然而现实并不是如此。整一个自然界中永远不会存在自由和平等。无论是残忍的生存法则，还是一条条的生物链，都昭示着自然界对自由和平等嗤之以鼻。没有任何理由能说明为什么老虎可以吃别的动物，也没有任何原因可以解释为什么蚂蚁天生就弱小，被其他动物欺凌。动物们所谓的自由和平等绝不会催生出一个乌托邦一般美好的社会，而他们的信仰却成为独裁者的欺世的谎言。正如书中的动物们，他们不断被聪明狡诈的猪们威胁说，“你们可不想琼斯先生回来吧。要是琼斯先生回来，我们就再也不会有自由”。动物们都害怕失去自由，然而动物们却都不知道到底什么是自由，谁也无法定义什么是人人平等。所有人知道的，便是记着老麦哲的美好愿景，他们误以为，那是自由和平等带来的未来。这样不明就里的相信，使得信仰变成了统治者统治的工具，信心成为独裁者控制的最佳法器。&lt;/p&gt;
+&lt;p&gt;反过来问，我们的世界是否要自由和平等。需要的！我们需要的自由是一套完整制度，完整法令保护下的人格的独立。法国大革命《人权宣言》对自由的定义是：“自由即有权做一切无害于他人的任何事情。”在二战中，罗斯福提出了四大自由：“言论自由，信仰自由，免于匮乏的自由和免于恐惧的自由。”在联合国人权宣言中，四大自由被重申。反观《动物庄园》中动物们的自由，却哪里找得到言论，信仰，免于匮乏和恐惧的自由。反而较之以前，动物们被更多的剥削，这一点从鸡们被麦哲伦要求上缴更多的鸡蛋就可以看出。但是具有讽刺的是，动物们并没有马上意识到自己被愚弄，动物们心中所想的事，反而是需要更加努力的工作。比如Boxer就是一个典型的例子，他从最开始和小公鸡约定要提前半小时起床工作到后来的提前一个小时提前工作。Boxer是革命的忠实拥护者，他小心翼翼的维护者革命的成果，他更加是自由和平等的拥护者。但是正因为他的固执地坚信老麦哲的政治思想——即自由会带来丰收，而无人类的约束即是最大的自由。他的固执使得他深受毒害，最终也造成了他惨死悲剧。&lt;/p&gt;
+&lt;p&gt;作为寓言故事，《动物庄园》影射了当时俄国从十月革命到1940年的历史过程。其实在现实过程中，不乏这样的革命者。中国历史上垒起呐喊着消灭暴政的各样农民起义，最终沦为新的苛政。而作为革命的主题的农民们，依然把持着美好的愿景，甘心的被奴役。着眼于中国现代史，这样的事件也屡见不鲜。革命者曲解社会主义，塑造了共产主义的美好愿景，却直接导致了大跃进等经济上的严重倒退。&lt;/p&gt;
+&lt;p&gt;那么我们需要什么样的自由和平等？动物们所需要的，不仅仅是一个美好的愿景，不仅仅是一场革命，不仅仅是推翻一个领袖，不仅仅是七戒这样的一张宣言，更不仅仅是一个能带领动物们走向自由的麦哲伦一般的领袖。他们需要的是一套制度以及能使这套制度运行的动力。而动物们所想的自由，所想的美好愿景，是这一套法律能够给予保护的人格的独立。动物们需要的是一套法案，他规范了所有动物的职责，任何超越这些职责的动物都应当受到谴责。他限制了所有人的职能，没有一个人——比如麦哲伦——可以独断的决定一切。当然动物们还需要的是带动整个社会运作的动力。从动物们的风车计划就可以看出动物们并没有能力支撑起他们小小庄园的运作。他们松散的结构根本无法供给自身。这样一个缺乏能量来源的乌托邦社会，最终沦为麦哲伦手中的玩物，和人类大摇大摆的做起交易，并安上了一个救世主的美名。&lt;/p&gt;
+&lt;p&gt;我们无比渴望自由，但是正如孙中山先生所说，这个世界上没有绝对的自由。在此告诫改革者们，即使是一套有漏洞有缺陷的制度，也远远比假大空的空想愿景更好。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Asynchronous function in Unity</title>
       <link>https://yiwei.dev/posts/asynchronous-function-in-unity/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/asynchronous-function-in-unity/</guid>
-      <description>Async and await keyword Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like Start, Update, now it supports the async version, and with the async keyword in the front, the function now will be dispatched asynchronously automatically by the engine.
-private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#34;); await Task.Delay(TimeSpan.FromSeconds(2)); Debug.Log(&amp;#34;Task delay 2 finished&amp;#34;); } The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.</description>
+      <description>&lt;h2 id=&#34;async-and-await-keyword&#34;&gt;Async and await keyword&lt;/h2&gt;
+&lt;p&gt;Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like &lt;code&gt;Start&lt;/code&gt;, &lt;code&gt;Update&lt;/code&gt;, now it supports the async version, and with the &lt;code&gt;async&lt;/code&gt; keyword in the front, the function now will be dispatched asynchronously automatically by the engine.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Start task delay 2 seconds&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; Task.Delay(TimeSpan.FromSeconds(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Task delay 2 finished&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.
+The C# build-in HTTP library also provides a nice async wrapper, which can be used in the asynchronous MonoBehaviour as well.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rendering Equation</title>
       <link>https://yiwei.dev/posts/rendering-equation/</link>
       <pubDate>Sun, 12 Jul 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/rendering-equation/</guid>
-      <description> Presentation of Rendering Equation </description>
+      <description>&lt;iframe src=&#34;https://onedrive.live.com/embed?resid=3B28EE8BB218C5BA%2136170&amp;amp;authkey=!AJTAvgfb5YoYD8c&amp;amp;em=2&amp;amp;wdAr=1.7777777777777777&#34; style=&#34;width: 100%; aspect-ratio: 4/3;&#34; frameborder=&#34;0&#34;&gt;
+    Presentation of Rendering Equation
+&lt;/iframe&gt;</description>
     </item>
-    
     <item>
       <title>The Last of Us</title>
       <link>https://yiwei.dev/posts/the-last-of-us/</link>
       <pubDate>Sun, 08 Jul 2018 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/the-last-of-us/</guid>
-      <description>上个星期的时候，玩完了The Last of Us，还有DLC – Left Behind。玩完的时候，有一种怅然若失的感觉，一直想写一篇文章来结束这20小时的故事，但总觉得不知道感情的着落点在何处，甚至沉思了许久，写了又删，结果便是连开头都没有挤出一点。
-这个星期意外的发现，顽皮狗在游戏中专门放入了特典，对游戏中的每一段CG都加入了两位主角主演，以及编辑的一些评价。原本便意犹未尽，于是这周，把所有的CG以及顽皮狗的制作特辑都欣赏了一遍，总算可以来一个告别，以至于愈发觉得有必要来写一些什么。
-在The Last of Us之前，我才刚刚结束顽皮狗的神秘海域系列。大概是一个星期的时间，每天晚上都在玩神秘海域。一口气结束了神秘海域1-3合集，神秘海域4，还有大型DLC失落的遗产。第一次接触神秘海域4，被完美壮阔的风景所惊艳，然后是神秘海域2的火车剧情更加是惊叹不已，再到最后的遗产，开始慢慢发现固定的好莱坞式剧情，随后玩法的慢慢重复，角色性格固化，便不难理解顽皮狗宣布神秘海域全系列终结的原因。一度讨厌“恐怖游戏”，一直不太喜欢僵尸题材，但因为对顽皮狗的喜爱，开始尝试The Last of Us。结果没想到的是这个游戏给我了PS4上最大的惊喜。
-序章开始的时候，Sarah被士兵无情的杀害，Joel在Sarah去世前，无助和痛苦成为了他这二十年对这个世界的报复。Bill说过一句话，在这个末日的世界中，你不能关心别人，因为他们最后只会成为让你被杀害。顽皮狗并没有告诉我们Joel这二十年到底经历了什么。但是从他的行为，其他角色的只言片语中知道，他并不是英雄，甚至连好人都不是。
-第一次Joel带着Ellie穿越军事防区的时候，Joel随手杀死了守卫的士兵。Ellie问Joel，你杀过很多人么？在经历了这么多游戏，会突然觉得很神奇。以前，每一个游戏都是主角一路突突突，遇神杀神，遇佛杀佛，仿佛死亡是一件很轻松的事情。然而在The Last of Us中，顽皮狗无时无刻不在渲染死亡的恐惧。亏缺的物资，漫长的击杀CG还有无处无在的感染者。杀人变成了一件不得不做的事情。
-所以Joel一定不会为了Ellie付出自我。一个莫名其妙的小女孩，甚至是一个被感染者。在这样的一个末世，对别人的任何一点更多的关心，都会招来杀身之祸。你能做的，就是对一切事物冷漠，自私自利。
-但是Joel并不讨厌她。甚至Joel会在那么一两个地方，被Ellie的坚持和勇敢所感动。但是Joel并不是一个善于表达的人，也更不会对Ellie敞开心扉。Sarah的去世已经让Joel对这个世界彻底失望。更何况，对Ellie倾注多一点点的情感，在这人人自危的末世，指不定哪一天失去Sarah的那一幕会在Ellie身上重演。
-为了强化这种情感的羁绊，编剧甚至引入了Henry和Sam俩兄弟。Henry就像是Joel的侧写，一个Joel善良一面的侧写。为了Sam，Henry可以付出一切。他们自私，在危急关头抛弃Joel和Ellie逃跑。他们依然善良，在Joel和Ellie落水后，把他们救上岸。Henry对Joel说，换作你你也会这么做，为了保护她你不惜牺牲一切。这是第一次——编剧透过第三人称告诉我们——Ellie在Joel的心中，就好像埋下了一颗种子，在未来的某一时刻，会发芽，然后爆发，最后Joel彻底接受Ellie。
-Sam被感染的时候，Henry无奈之下，枪杀了Sam。Henry在自杀前，用枪指着Joel说，喃喃自语，it’s all your fault。“你”当然指的是Henry自己。编剧用Henry和Sam讲诉了一个Joel和Ellie的侧写。在世界末日之时，谁也不知道明天会是如何。也许在Ellie会变成另一个Sarah，而Joel则变成下一个Henry。Joel从来都没有表示什么。他杀人依旧是那么利索可怕，甚至折磨起人来也丝毫不手软。然而我们却那么深刻的感受到，Joel所害怕的便是在他眼前失去Ellie，就好像二十年前失去Sarah那样，以至于Joel是如此希望弟弟Tommy能代自己护送Ellie找到火萤。
-直到Joel找到出走的Ellie，Ellie当着他的面说，你到底在害怕什么，而我比你更害怕，身边的所有人不是抛弃自己便是死去，只有Joel带着自己走过这么多困难。Ellie把Joel视为父亲和唯一信任的人。而Joel却因为害怕而不敢接受她。直到Ellie说，I am not her。也许这是二十年来，第一个对着Joel的面说起Sarah的人，而这一下，也彻底击中了Joel心中善良柔软的那部分。
-故事进入后半段。两个主角从陌生人，开始真正变得互相依赖。Joel会跟Ellie说Sarah。他说，如果Sarah还活着，她和Ellie一定会是好朋友。Sarah一直是Joel的善良和柔软的那部分，也是在这个末世下，Joel身上剩下的人性。而终于在二十年后，被这个陌生的小女孩唤起。
-也许编剧觉得这么多还不足够让Joel彻底的把Ellie当作自己的女儿，于是便精心策划了Joel的受伤。全篇只有一章，玩家可以从Ellie的视角去看世界。Joel的重伤把这个冬天变得特别难熬。Ellie学会打猎，从一个被人照顾的小女孩，开始担负起照顾Joel的责任。甚至为了保护Joel，不惜引开敌人而不幸被抓。 于是，编剧告诉了我们这个世界真正邪恶的一面。人们因为食物匮乏而互相杀害，甚至是吃人也正常不过。Ellie无疑坚强，勇敢。然而在Ellie杀死David的时候，Ellie的情绪已经在奔溃边缘。前来救Ellie的Joel冲进来抱住Ellie，这是他第一次抱住Ellie，也终于，Joel真正接受了父亲这个角色。
-经历了人间最恐怖的地狱以后，故事给了我们一个巨大的温馨。看着长颈鹿在废墟缓缓的走动，看着Ellie活蹦乱跳的样子，我们暂时忘记了一路过来的血腥和恐怖。Joel对Ellie说，我们可以不必这样。Joel已经无法再失去Ellie，更不愿意她受到任何伤害。
-在他们到达医院之前，Ellie溺水了。Joel手足无措，他只想就活Ellie，甚至在士兵靠近，枪抵着脑袋的时候，他还在抢救Ellie。编剧把二十年前，序章里Sarah的意外投影在Ellie身上，在Joel第二次经历到的时候，我们就好像Joel一样，无论如何，不能再失去Ellie了。 对啊，去他妈的拯救世界。
-不是好莱坞电影中英雄般的结局，甚至反派都不能称作反派，更加的，连BOSS战都被CG带过，然而当看到穿着手术服的Ellie静静地躺在车后座，多少人像我一样，还好，Ellie还活着。只有Ellie或者，全世界都死了又怎么样呢？
-当世界有了声音，人们便听到了别人所听到的。当世界有了画，人们便见到别人所见到的。当世界有了语言，人们便联想到别人所想到的。当世界有了电影，人们便经历到别人所经历到的。而当世界有了游戏，人们便听到了，见到了，联想到了，经历到了所有的一切。谁说游戏不是艺术呢？ 顽皮狗大概是这个世界上最会讲故事的游戏公司。从来不觉得，李逍遥就一定要保护灵儿回苗族，从来不觉得因为父亲，劳拉就一定会成为古墓丽影。所有的故事都在为发展找铺垫，找借口。而顽皮狗却因为铺垫而展开故事。而作为玩家，在这十五小时，拿着手柄和Joel，和Ellie一起走完这一整年的旅程，愈发地从内心，和他们产生一样的情感共鸣。
-总觉得说什么都不够评价The Last of Us。但如果硬要说一句感受，大概是这么一种感觉:
-想马上出门，买一台PS4和The Last of Us，然后封藏在地下室。等多年后，我有了孩子——最好是女儿——然后在她十四岁的时候，送她The Last of Us，然后和她一起经历Joel和Ellie的这段故事。</description>
+      <description>&lt;p&gt;上个星期的时候，玩完了The Last of Us，还有DLC – Left Behind。玩完的时候，有一种怅然若失的感觉，一直想写一篇文章来结束这20小时的故事，但总觉得不知道感情的着落点在何处，甚至沉思了许久，写了又删，结果便是连开头都没有挤出一点。&lt;/p&gt;
+&lt;p&gt;这个星期意外的发现，顽皮狗在游戏中专门放入了特典，对游戏中的每一段CG都加入了两位主角主演，以及编辑的一些评价。原本便意犹未尽，于是这周，把所有的CG以及顽皮狗的制作特辑都欣赏了一遍，总算可以来一个告别，以至于愈发觉得有必要来写一些什么。&lt;/p&gt;
+&lt;p&gt;在The Last of Us之前，我才刚刚结束顽皮狗的神秘海域系列。大概是一个星期的时间，每天晚上都在玩神秘海域。一口气结束了神秘海域1-3合集，神秘海域4，还有大型DLC失落的遗产。第一次接触神秘海域4，被完美壮阔的风景所惊艳，然后是神秘海域2的火车剧情更加是惊叹不已，再到最后的遗产，开始慢慢发现固定的好莱坞式剧情，随后玩法的慢慢重复，角色性格固化，便不难理解顽皮狗宣布神秘海域全系列终结的原因。一度讨厌“恐怖游戏”，一直不太喜欢僵尸题材，但因为对顽皮狗的喜爱，开始尝试The Last of Us。结果没想到的是这个游戏给我了PS4上最大的惊喜。&lt;/p&gt;
+&lt;p&gt;序章开始的时候，Sarah被士兵无情的杀害，Joel在Sarah去世前，无助和痛苦成为了他这二十年对这个世界的报复。Bill说过一句话，在这个末日的世界中，你不能关心别人，因为他们最后只会成为让你被杀害。顽皮狗并没有告诉我们Joel这二十年到底经历了什么。但是从他的行为，其他角色的只言片语中知道，他并不是英雄，甚至连好人都不是。&lt;/p&gt;
+&lt;p&gt;第一次Joel带着Ellie穿越军事防区的时候，Joel随手杀死了守卫的士兵。Ellie问Joel，你杀过很多人么？在经历了这么多游戏，会突然觉得很神奇。以前，每一个游戏都是主角一路突突突，遇神杀神，遇佛杀佛，仿佛死亡是一件很轻松的事情。然而在The Last of Us中，顽皮狗无时无刻不在渲染死亡的恐惧。亏缺的物资，漫长的击杀CG还有无处无在的感染者。杀人变成了一件不得不做的事情。&lt;/p&gt;
+&lt;p&gt;所以Joel一定不会为了Ellie付出自我。一个莫名其妙的小女孩，甚至是一个被感染者。在这样的一个末世，对别人的任何一点更多的关心，都会招来杀身之祸。你能做的，就是对一切事物冷漠，自私自利。&lt;/p&gt;
+&lt;p&gt;但是Joel并不讨厌她。甚至Joel会在那么一两个地方，被Ellie的坚持和勇敢所感动。但是Joel并不是一个善于表达的人，也更不会对Ellie敞开心扉。Sarah的去世已经让Joel对这个世界彻底失望。更何况，对Ellie倾注多一点点的情感，在这人人自危的末世，指不定哪一天失去Sarah的那一幕会在Ellie身上重演。&lt;/p&gt;
+&lt;p&gt;为了强化这种情感的羁绊，编剧甚至引入了Henry和Sam俩兄弟。Henry就像是Joel的侧写，一个Joel善良一面的侧写。为了Sam，Henry可以付出一切。他们自私，在危急关头抛弃Joel和Ellie逃跑。他们依然善良，在Joel和Ellie落水后，把他们救上岸。Henry对Joel说，换作你你也会这么做，为了保护她你不惜牺牲一切。这是第一次——编剧透过第三人称告诉我们——Ellie在Joel的心中，就好像埋下了一颗种子，在未来的某一时刻，会发芽，然后爆发，最后Joel彻底接受Ellie。&lt;/p&gt;
+&lt;p&gt;Sam被感染的时候，Henry无奈之下，枪杀了Sam。Henry在自杀前，用枪指着Joel说，喃喃自语，it’s all your fault。“你”当然指的是Henry自己。编剧用Henry和Sam讲诉了一个Joel和Ellie的侧写。在世界末日之时，谁也不知道明天会是如何。也许在Ellie会变成另一个Sarah，而Joel则变成下一个Henry。Joel从来都没有表示什么。他杀人依旧是那么利索可怕，甚至折磨起人来也丝毫不手软。然而我们却那么深刻的感受到，Joel所害怕的便是在他眼前失去Ellie，就好像二十年前失去Sarah那样，以至于Joel是如此希望弟弟Tommy能代自己护送Ellie找到火萤。&lt;/p&gt;
+&lt;p&gt;直到Joel找到出走的Ellie，Ellie当着他的面说，你到底在害怕什么，而我比你更害怕，身边的所有人不是抛弃自己便是死去，只有Joel带着自己走过这么多困难。Ellie把Joel视为父亲和唯一信任的人。而Joel却因为害怕而不敢接受她。直到Ellie说，I am not her。也许这是二十年来，第一个对着Joel的面说起Sarah的人，而这一下，也彻底击中了Joel心中善良柔软的那部分。&lt;/p&gt;
+&lt;p&gt;故事进入后半段。两个主角从陌生人，开始真正变得互相依赖。Joel会跟Ellie说Sarah。他说，如果Sarah还活着，她和Ellie一定会是好朋友。Sarah一直是Joel的善良和柔软的那部分，也是在这个末世下，Joel身上剩下的人性。而终于在二十年后，被这个陌生的小女孩唤起。&lt;/p&gt;
+&lt;p&gt;也许编剧觉得这么多还不足够让Joel彻底的把Ellie当作自己的女儿，于是便精心策划了Joel的受伤。全篇只有一章，玩家可以从Ellie的视角去看世界。Joel的重伤把这个冬天变得特别难熬。Ellie学会打猎，从一个被人照顾的小女孩，开始担负起照顾Joel的责任。甚至为了保护Joel，不惜引开敌人而不幸被抓。 于是，编剧告诉了我们这个世界真正邪恶的一面。人们因为食物匮乏而互相杀害，甚至是吃人也正常不过。Ellie无疑坚强，勇敢。然而在Ellie杀死David的时候，Ellie的情绪已经在奔溃边缘。前来救Ellie的Joel冲进来抱住Ellie，这是他第一次抱住Ellie，也终于，Joel真正接受了父亲这个角色。&lt;/p&gt;
+&lt;p&gt;经历了人间最恐怖的地狱以后，故事给了我们一个巨大的温馨。看着长颈鹿在废墟缓缓的走动，看着Ellie活蹦乱跳的样子，我们暂时忘记了一路过来的血腥和恐怖。Joel对Ellie说，我们可以不必这样。Joel已经无法再失去Ellie，更不愿意她受到任何伤害。&lt;/p&gt;
+&lt;p&gt;在他们到达医院之前，Ellie溺水了。Joel手足无措，他只想就活Ellie，甚至在士兵靠近，枪抵着脑袋的时候，他还在抢救Ellie。编剧把二十年前，序章里Sarah的意外投影在Ellie身上，在Joel第二次经历到的时候，我们就好像Joel一样，无论如何，不能再失去Ellie了。 对啊，去他妈的拯救世界。&lt;/p&gt;
+&lt;p&gt;不是好莱坞电影中英雄般的结局，甚至反派都不能称作反派，更加的，连BOSS战都被CG带过，然而当看到穿着手术服的Ellie静静地躺在车后座，多少人像我一样，还好，Ellie还活着。只有Ellie或者，全世界都死了又怎么样呢？&lt;/p&gt;
+&lt;p&gt;当世界有了声音，人们便听到了别人所听到的。当世界有了画，人们便见到别人所见到的。当世界有了语言，人们便联想到别人所想到的。当世界有了电影，人们便经历到别人所经历到的。而当世界有了游戏，人们便听到了，见到了，联想到了，经历到了所有的一切。谁说游戏不是艺术呢？ 顽皮狗大概是这个世界上最会讲故事的游戏公司。从来不觉得，李逍遥就一定要保护灵儿回苗族，从来不觉得因为父亲，劳拉就一定会成为古墓丽影。所有的故事都在为发展找铺垫，找借口。而顽皮狗却因为铺垫而展开故事。而作为玩家，在这十五小时，拿着手柄和Joel，和Ellie一起走完这一整年的旅程，愈发地从内心，和他们产生一样的情感共鸣。&lt;/p&gt;
+&lt;p&gt;总觉得说什么都不够评价The Last of Us。但如果硬要说一句感受，大概是这么一种感觉:&lt;/p&gt;
+&lt;p&gt;想马上出门，买一台PS4和The Last of Us，然后封藏在地下室。等多年后，我有了孩子——最好是女儿——然后在她十四岁的时候，送她The Last of Us，然后和她一起经历Joel和Ellie的这段故事。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>满江红·二十三生日所作</title>
       <link>https://yiwei.dev/posts/%E6%BB%A1%E6%B1%9F%E7%BA%A2%E4%BA%8C%E5%8D%81%E4%B8%89%E7%94%9F%E6%97%A5%E6%89%80%E4%BD%9C/</link>
       <pubDate>Tue, 28 Feb 2017 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%BB%A1%E6%B1%9F%E7%BA%A2%E4%BA%8C%E5%8D%81%E4%B8%89%E7%94%9F%E6%97%A5%E6%89%80%E4%BD%9C/</guid>
-      <description>家住江南，又到了，初春颜色。南洲处，几番风雨，几番漂泊。五载年华弹指去，此为蜗角须臾国。笑尘埃、二十三年非，长为客。 停云处，青山碧；谪仙诗，追黄鹤。叹营营众宦，诛文伐墨。千百年传吾辈话，岂能未老头先白。吐狂谈，欲与古人歌，同君乐。</description>
+      <description>&lt;p&gt;家住江南，又到了，初春颜色。南洲处，几番风雨，几番漂泊。五载年华弹指去，此为蜗角须臾国。笑尘埃、二十三年非，长为客。 停云处，青山碧；谪仙诗，追黄鹤。叹营营众宦，诛文伐墨。千百年传吾辈话，岂能未老头先白。吐狂谈，欲与古人歌，同君乐。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>谢池春</title>
       <link>https://yiwei.dev/posts/%E8%B0%A2%E6%B1%A0%E6%98%A5/</link>
       <pubDate>Wed, 30 Apr 2014 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E8%B0%A2%E6%B1%A0%E6%98%A5/</guid>
-      <description>岁晚蓝田、曾是将军飞虎。罢南山、桑麻社曲。雕弓花射，醉言英雄故。客长亭、霸陵羁旅。 江边老叟，拟泛扁舟吴楚。梦干戈、伤心柝鼓。吾庐寒小，未得刘郎顾。看江山，一蓑烟雨。</description>
+      <description>&lt;p&gt;岁晚蓝田、曾是将军飞虎。罢南山、桑麻社曲。雕弓花射，醉言英雄故。客长亭、霸陵羁旅。 江边老叟，拟泛扁舟吴楚。梦干戈、伤心柝鼓。吾庐寒小，未得刘郎顾。看江山，一蓑烟雨。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>敬赠王琪琳吾兄一百字</title>
       <link>https://yiwei.dev/posts/%E6%95%AC%E8%B5%A0%E7%8E%8B%E7%90%AA%E7%90%B3%E5%90%BE%E5%85%84%E4%B8%80%E7%99%BE%E5%AD%97/</link>
       <pubDate>Fri, 31 Jan 2014 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%95%AC%E8%B5%A0%E7%8E%8B%E7%90%AA%E7%90%B3%E5%90%BE%E5%85%84%E4%B8%80%E7%99%BE%E5%AD%97/</guid>
-      <description>我本楚狂人，凤歌笑孔丘。 当逢接舆客，停马轻貂裘。 剑阁有郎俊，年少出杭州。 天涯难一遇，相逢在南楼。 美酒沾白露，纷纷与君酬。 千古同一醉，借消万古愁。 酒罢同君语，长饮复还休。 高山俯仰止，大河亘古流。 莫逆平生死，刎颈相交游。 人间有知己，对歌笑万侯。</description>
+      <description>&lt;p&gt;我本楚狂人，凤歌笑孔丘。 当逢接舆客，停马轻貂裘。 剑阁有郎俊，年少出杭州。 天涯难一遇，相逢在南楼。 美酒沾白露，纷纷与君酬。 千古同一醉，借消万古愁。 酒罢同君语，长饮复还休。 高山俯仰止，大河亘古流。 莫逆平生死，刎颈相交游。 人间有知己，对歌笑万侯。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>酒中仙</title>
       <link>https://yiwei.dev/posts/%E9%85%92%E4%B8%AD%E4%BB%99/</link>
       <pubDate>Fri, 31 Jan 2014 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E9%85%92%E4%B8%AD%E4%BB%99/</guid>
-      <description>我本骑鲸人，受封酒中仙。 千杯醉不倒，万倾梦里眠。 潦倒穷姿态，请君听我言。 人生难百岁，往事如尘烟。 魏王军百万，吩咐酒尊前。 当作云中客，逍遥一神仙。 主人出白马，宾客取长绢。 珍奇千山事，都做换酒钱。</description>
+      <description>&lt;p&gt;我本骑鲸人，受封酒中仙。 千杯醉不倒，万倾梦里眠。 潦倒穷姿态，请君听我言。 人生难百岁，往事如尘烟。 魏王军百万，吩咐酒尊前。 当作云中客，逍遥一神仙。 主人出白马，宾客取长绢。 珍奇千山事，都做换酒钱。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>应王之铮兄诗</title>
       <link>https://yiwei.dev/posts/%E5%BA%94%E7%8E%8B%E4%B9%8B%E9%93%AE%E5%85%84%E8%AF%97/</link>
       <pubDate>Fri, 22 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%BA%94%E7%8E%8B%E4%B9%8B%E9%93%AE%E5%85%84%E8%AF%97/</guid>
-      <description>快饮楼头九重天，按乐清歌笑众贤。 六孔音停陈百岁，七弦声动说千年。 金锤朱亥魏和赵，匕首荆卿秦与燕。 暂住歌筳安簟枕，请君共我醉时眠。</description>
+      <description>&lt;p&gt;快饮楼头九重天，按乐清歌笑众贤。 六孔音停陈百岁，七弦声动说千年。 金锤朱亥魏和赵，匕首荆卿秦与燕。 暂住歌筳安簟枕，请君共我醉时眠。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>酬之铮兄诗</title>
       <link>https://yiwei.dev/posts/%E9%85%AC%E4%B9%8B%E9%93%AE%E5%85%84%E8%AF%97/</link>
       <pubDate>Fri, 22 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E9%85%AC%E4%B9%8B%E9%93%AE%E5%85%84%E8%AF%97/</guid>
-      <description>吾本雕朽质，尝闻八斗才。 高歌藏海境，谈笑有蓬莱。 醉月寻仙迹，幽游到古台。 终南多迷困，驾鹤与君开。</description>
+      <description>&lt;p&gt;吾本雕朽质，尝闻八斗才。 高歌藏海境，谈笑有蓬莱。 醉月寻仙迹，幽游到古台。 终南多迷困，驾鹤与君开。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>得来烹煮味偏浓，笑傲江湖打哄</title>
       <link>https://yiwei.dev/posts/%E5%BE%97%E6%9D%A5%E7%83%B9%E7%85%AE%E5%91%B3%E5%81%8F%E6%B5%93%E7%AC%91%E5%82%B2%E6%B1%9F%E6%B9%96%E6%89%93%E5%93%84/</link>
       <pubDate>Fri, 22 Mar 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%BE%97%E6%9D%A5%E7%83%B9%E7%85%AE%E5%91%B3%E5%81%8F%E6%B5%93%E7%AC%91%E5%82%B2%E6%B1%9F%E6%B9%96%E6%89%93%E5%93%84/</guid>
-      <description>最近新版的笑傲江湖热播，虽然某些故事颇有恶搞之嫌，原本的桃谷六仙这样的剧情也被强搭硬牵放到了东方不败身上。原本任盈盈数次救令狐冲也被改为东方不败数次舍命。难怪看客们说来，任盈盈简直小三无疑。虽然众多剧情改变，但是新笑傲江湖的人物刻画还是较为准确，也没有大改原著。对着小说也看了一遍，在次便谈谈书中令狐冲和林平之两位。
-《笑傲江湖》金庸作于稍晚时期。笔法成熟文件，寓意深远。金庸武侠的一大特点便是寓史于文。在中华历史中，鬼斧神工一般开凿出一个小缝，然后江湖上的腥风血雨也都在这个小缝中铺展开来。金庸先生博闻强记，每一段故事随是夹缝中求生，却是有血有肉，恍惚历史上真有其人，真有其事。但是《笑傲江湖》却从未点名历史时间。只是从字里行间，我们能估摸着知道，约是宋朝以后的故事了。话虽如此，正如金庸先生自己所说，《笑傲江湖》中的故事虽然没点名在哪一个朝代，但是故事本身却可以发生在任何一个朝代。所谓的正派，勾心斗角，所谓的魔教却能出手救人性命。所谓的君子剑到头来却是笑里藏刀，所谓的妖女却是一往情深。一切的一切，每一步走的都是有违常理，却也合乎人性。是故说金庸先生笔力雄厚，更是拿捏的十分精稳。
-那么这样一部影射政治勾心斗角的奇文，其承载点又于何处？回转来，便是从令狐冲这个浪荡不羁的人爆发出来。至于林平之，只不过是这政治恶斗的牺牲品罢了。
-在书中，首先出场的并不是令狐冲，反倒是林平之。林平之出场之时，便带着一种大家子弟的样子。穿的是锦袍，骑的是骏马，有一群小跟班在后面喊，少爷，公子。虽说是大家子弟，但是在林平之身上，我们却看不到那种纨绔子弟特有的傲娇之意。他对任何人都是和和气气的。甚至对身份甚低的茶馆老头也是和和气气。对旁边的人，虽然我们没有看到那种大口喝酒，大口吃肉的豪气，但是却也从不拘泥小节。最好的是，林平之自己虽然武功低微，但是见到青城派的人调戏民女之时，心中却毫无畏缩，金庸先生曾经说过，武侠武侠，在侠而不在武。纵然是武功平平，但是心中有任侠之心，这样的人就可称之为大侠。文至此处，林平之确实可称之为大侠。
-林平之的出场，笔墨并不少。整整两章都从林平之的眼睛里看世界。林平之还是一个单纯的人，他眼睛中的世界也是单纯和纯粹的。甚至正邪也没有多大的分辨。最关键的是，就因为这样单纯的世界中，才有了令狐冲戏剧化的出场。
-在《笑傲江湖》一书中，令狐冲正式出场反倒是在四五章之后，而前面的文字，却是大家口中的令狐少侠，令狐大哥，以及令狐败类了。金庸先生这样大费周折的用大量笔墨引述他人的话，无非是把令狐冲描写的更加戏剧化。与其说是林平之性格上不如令狐冲，倒不如说是，金庸太偏爱笔下这位令狐少侠了。
-令狐冲出场和林平之却有异曲同工之妙。林平之救下了岳灵珊，令狐冲救下了仪琳。而且两个人较之对手，武功都是平平。林平之被青城派打得一塌糊涂，令狐冲也被田伯光砍得重伤。林平之不惧生死，数次对父母说，大丈夫一人做事一人当。令狐冲也是舍命跟田伯光打赌。两件非常类似得事情，在叙述上却完完全全的不一样，甚至人物的形状，性格都是高下立分。我们对此时的林平之的感情若何？同情，甚至对他的意气用事有些许厌恶。但是说到意气用事，令狐冲比林平之又多了不知多少倍。我们看到的令狐冲却真的是那个令狐少侠了。原因还是那一个，金庸实在是太偏爱令狐冲了。
-林平之的对手是机关算尽的余沧海之子。我们看到的林平之是，少不更事甚至完全不知江湖险恶的一个小孩子。于是他这一场架，没有赢得多大的赞赏，没有人大声叫好，有的只是看着一个小孩子被欺负，大家心头的那一阵同情罢了。反过来看令狐冲，令狐冲的对手田伯光却是一个有血有肉的坏好人。一方面他是众人唾弃的采花大盗。另一方面，我们又看到他是言而有信，甚至愿意拉着妨碍自己好事的令狐冲喝上一杯的爽快人。虽然令狐冲被他欺负的不成人样。我们从令狐冲没正经的言辞中，也从田伯光那些，“我当你是兄弟，大家都是爽快人，卖你个面子”这些语不着调的言辞中，影射出了令狐少侠身上那种不羁的灵气。所以，虽然听到他满身是血，甚至是命不久矣。我们却没有伤心，没有同情，反倒是想说，这小子牛逼好样的。
-都所谓性格受到环境的影响。我们不妨看看林平之和令狐冲的生活环境。写到此处，我又不得不想提笔骂上金庸先生一句，他实在是太偏爱令狐冲了。林平之从小就是在父母的保护下长大，也从小学了不错的武功。做事也从不畏首畏尾。但是我们却看到林平之身上一种被戏剧性扩大的性格，冲动。林平之的冲动来自于他骨子里的倔强。林平之很倔强，不肯向人低头。我们很难说这是一种好的性格还是一种坏性格。在人心险恶的江湖，冲动带来的结果就是被人欺侮。林平之挂在口边的总是，孩儿这口气咽不下，不妨提剑跟他们拼命。他不懂的包掩仇恨，甚至一味的放任仇恨。林平之会把仇恨牢记于心，谁对他好谁对他不好他心里都会记着。但是他却不懂的控制，不懂的君子报仇十年不晚。所以林平之的倔强，是一种匹夫心态。
-令狐冲的倔强却是完完全全不同。有人说令狐冲整天笑嘻嘻的没个正经样，哪来的倔强。但是不妨看他在金刀王家的所作所为。打死不肯跟人说一句好话，打死不与他们为伍。这不是一种倔强？又看他和田伯光，打死不肯求饶一句，直到死前都还是笑嘻嘻的，这更是令狐冲的倔强。但是他和林平之不同的是，他的傲气不是来自于仇恨，而是来自与骨子里的那种气魄。令狐冲是不计较仇恨的。甚至他的世界里，仇恨是一个很难的东西。正是因为这样，令狐冲也很少有仇家。他被田伯光坎的奄奄一息，后来却和这个采花大盗成为好友。纵然他对林平之很是吃醋，但是从不忘这个小师弟。纵然岳不群怀疑他，猜忌他，虽然他郁闷了一些日子，却也不放在心上，照样喝酒取乐。甚至，桃谷六仙把他折磨的生不如死，他也从来没真正放在心上。令狐冲式的倔强不是和人过不去，也不是和事情过不去，而是他骨子里的傲气罢了。而林平之式的倔强则是和仇恨生息相关，这也导致了后来他被仇恨冲昏了头脑。
-至于为什么要说金庸先生偏爱令狐冲。大家且看林平之，林平之是家中娇生惯养的富二代，因此他的性格养成也与父母疼爱有关。令狐冲从小孤苦伶仃，被岳不群收养。在令狐冲长大之时，岳不群还是君子的样子。师父师母都从不会调笑，都是一本正经的人。挂在嘴边的也是满口的道德正义。但是在这样的环境下，令狐冲骨子里那种不羁的灵魂却还是保留下来了。我们要问为什么，只能说，金庸实在是太爱令狐冲了。
-最后，我们不禁要问，林平之爱岳灵珊吗？令狐冲爱任盈盈吗？第一个问题，不知道。第二个问题，答案却是肯定的。首先回答第一个问题。林平之爱岳灵珊吗？林平之和岳灵珊在一起不过是令狐冲面壁思过时候的事情。金庸在书中并没有细写。电视剧里，把林平之表现的是阴险毒辣，利用岳灵珊达成自己的目的。但实际上，当当这样考虑是不周全的。林平之对这个妻子还是有感情的。在小说之初，林平之就宁可牺牲自己，也不要师父，以及这个师姐受辱。问题在于，这样的感情是纯粹的吗？我们不知道。我们不知道的是林平之被仇恨冲淡了感情还是利用了感情填补他心中的仇恨？但不管怎么样，这样的感情是不纯粹的。甚至他们两个在一起都让人很好奇。岳灵珊贪玩，林平之却只顾着学剑。这样的故事，我们只能说，岳灵珊爱平之是绝对的。但是平之是不是爱这个师姐，我们却不得而知。
-岳灵珊是个很好的女孩子。人们往往因为她移情别恋而痛恨她。其实我们看的很清楚，这只不过是情窦初开的少女情怀罢了。有人说，岳灵珊的性格是不会移情别恋的，只不过金庸要把这个人的位置让给任盈盈罢了。因为任盈盈实在是太完美了。回到之前的问题，令狐冲爱岳灵珊吗？爱，令狐冲太宠爱他这个小师妹了。但是这一种爱却不是夫妻情人那样的互相怜惜。但是令狐冲对盈盈的感情却是完完全全的爱恋。因为任盈盈实在是太配令狐冲了。我们往往只看到令狐少侠身上那种放荡不羁的样子，以为他和贪玩爱闹的灵珊是一对儿，我们却忘了令狐少侠身上的那种豪气。而他的那种不羁，只不过是他豪气的一种片面的表现罢了。至于任盈盈，我们却也找的到这样的豪气。从出手救自己的情敌，在从和令狐冲对饮，为令狐冲不顾生死，又和江湖上各路豪杰交好却从不是因为所谓的正邪偏见。听她琴身知她细腻，看她舍命救令狐冲知她情深意切，看她设计左冷禅知她冷静多谋。而令狐冲也是这样的人。令狐冲虽不会抚琴，但听到笑傲江湖曲心中登时开朗欢心。他对盈盈也是一往情深。从他的处事的态度，他也是足智多谋，从不拘泥小节。这样的两个人在一起才是千古绝配。
-一句话来说这两个人。两个性情并无多大差异。起初的处事为人，都能称上一句少侠。但是令狐冲性格不羁，林平之却困于仇恨。因此令狐冲越走越开阔，林平之越走越狭隘，最终把自己逼上绝路。</description>
+      <description>&lt;p&gt;最近新版的笑傲江湖热播，虽然某些故事颇有恶搞之嫌，原本的桃谷六仙这样的剧情也被强搭硬牵放到了东方不败身上。原本任盈盈数次救令狐冲也被改为东方不败数次舍命。难怪看客们说来，任盈盈简直小三无疑。虽然众多剧情改变，但是新笑傲江湖的人物刻画还是较为准确，也没有大改原著。对着小说也看了一遍，在次便谈谈书中令狐冲和林平之两位。&lt;/p&gt;
+&lt;p&gt;《笑傲江湖》金庸作于稍晚时期。笔法成熟文件，寓意深远。金庸武侠的一大特点便是寓史于文。在中华历史中，鬼斧神工一般开凿出一个小缝，然后江湖上的腥风血雨也都在这个小缝中铺展开来。金庸先生博闻强记，每一段故事随是夹缝中求生，却是有血有肉，恍惚历史上真有其人，真有其事。但是《笑傲江湖》却从未点名历史时间。只是从字里行间，我们能估摸着知道，约是宋朝以后的故事了。话虽如此，正如金庸先生自己所说，《笑傲江湖》中的故事虽然没点名在哪一个朝代，但是故事本身却可以发生在任何一个朝代。所谓的正派，勾心斗角，所谓的魔教却能出手救人性命。所谓的君子剑到头来却是笑里藏刀，所谓的妖女却是一往情深。一切的一切，每一步走的都是有违常理，却也合乎人性。是故说金庸先生笔力雄厚，更是拿捏的十分精稳。&lt;/p&gt;
+&lt;p&gt;那么这样一部影射政治勾心斗角的奇文，其承载点又于何处？回转来，便是从令狐冲这个浪荡不羁的人爆发出来。至于林平之，只不过是这政治恶斗的牺牲品罢了。&lt;/p&gt;
+&lt;p&gt;在书中，首先出场的并不是令狐冲，反倒是林平之。林平之出场之时，便带着一种大家子弟的样子。穿的是锦袍，骑的是骏马，有一群小跟班在后面喊，少爷，公子。虽说是大家子弟，但是在林平之身上，我们却看不到那种纨绔子弟特有的傲娇之意。他对任何人都是和和气气的。甚至对身份甚低的茶馆老头也是和和气气。对旁边的人，虽然我们没有看到那种大口喝酒，大口吃肉的豪气，但是却也从不拘泥小节。最好的是，林平之自己虽然武功低微，但是见到青城派的人调戏民女之时，心中却毫无畏缩，金庸先生曾经说过，武侠武侠，在侠而不在武。纵然是武功平平，但是心中有任侠之心，这样的人就可称之为大侠。文至此处，林平之确实可称之为大侠。&lt;/p&gt;
+&lt;p&gt;林平之的出场，笔墨并不少。整整两章都从林平之的眼睛里看世界。林平之还是一个单纯的人，他眼睛中的世界也是单纯和纯粹的。甚至正邪也没有多大的分辨。最关键的是，就因为这样单纯的世界中，才有了令狐冲戏剧化的出场。&lt;/p&gt;
+&lt;p&gt;在《笑傲江湖》一书中，令狐冲正式出场反倒是在四五章之后，而前面的文字，却是大家口中的令狐少侠，令狐大哥，以及令狐败类了。金庸先生这样大费周折的用大量笔墨引述他人的话，无非是把令狐冲描写的更加戏剧化。与其说是林平之性格上不如令狐冲，倒不如说是，金庸太偏爱笔下这位令狐少侠了。&lt;/p&gt;
+&lt;p&gt;令狐冲出场和林平之却有异曲同工之妙。林平之救下了岳灵珊，令狐冲救下了仪琳。而且两个人较之对手，武功都是平平。林平之被青城派打得一塌糊涂，令狐冲也被田伯光砍得重伤。林平之不惧生死，数次对父母说，大丈夫一人做事一人当。令狐冲也是舍命跟田伯光打赌。两件非常类似得事情，在叙述上却完完全全的不一样，甚至人物的形状，性格都是高下立分。我们对此时的林平之的感情若何？同情，甚至对他的意气用事有些许厌恶。但是说到意气用事，令狐冲比林平之又多了不知多少倍。我们看到的令狐冲却真的是那个令狐少侠了。原因还是那一个，金庸实在是太偏爱令狐冲了。&lt;/p&gt;
+&lt;p&gt;林平之的对手是机关算尽的余沧海之子。我们看到的林平之是，少不更事甚至完全不知江湖险恶的一个小孩子。于是他这一场架，没有赢得多大的赞赏，没有人大声叫好，有的只是看着一个小孩子被欺负，大家心头的那一阵同情罢了。反过来看令狐冲，令狐冲的对手田伯光却是一个有血有肉的坏好人。一方面他是众人唾弃的采花大盗。另一方面，我们又看到他是言而有信，甚至愿意拉着妨碍自己好事的令狐冲喝上一杯的爽快人。虽然令狐冲被他欺负的不成人样。我们从令狐冲没正经的言辞中，也从田伯光那些，“我当你是兄弟，大家都是爽快人，卖你个面子”这些语不着调的言辞中，影射出了令狐少侠身上那种不羁的灵气。所以，虽然听到他满身是血，甚至是命不久矣。我们却没有伤心，没有同情，反倒是想说，这小子牛逼好样的。&lt;/p&gt;
+&lt;p&gt;都所谓性格受到环境的影响。我们不妨看看林平之和令狐冲的生活环境。写到此处，我又不得不想提笔骂上金庸先生一句，他实在是太偏爱令狐冲了。林平之从小就是在父母的保护下长大，也从小学了不错的武功。做事也从不畏首畏尾。但是我们却看到林平之身上一种被戏剧性扩大的性格，冲动。林平之的冲动来自于他骨子里的倔强。林平之很倔强，不肯向人低头。我们很难说这是一种好的性格还是一种坏性格。在人心险恶的江湖，冲动带来的结果就是被人欺侮。林平之挂在口边的总是，孩儿这口气咽不下，不妨提剑跟他们拼命。他不懂的包掩仇恨，甚至一味的放任仇恨。林平之会把仇恨牢记于心，谁对他好谁对他不好他心里都会记着。但是他却不懂的控制，不懂的君子报仇十年不晚。所以林平之的倔强，是一种匹夫心态。&lt;/p&gt;
+&lt;p&gt;令狐冲的倔强却是完完全全不同。有人说令狐冲整天笑嘻嘻的没个正经样，哪来的倔强。但是不妨看他在金刀王家的所作所为。打死不肯跟人说一句好话，打死不与他们为伍。这不是一种倔强？又看他和田伯光，打死不肯求饶一句，直到死前都还是笑嘻嘻的，这更是令狐冲的倔强。但是他和林平之不同的是，他的傲气不是来自于仇恨，而是来自与骨子里的那种气魄。令狐冲是不计较仇恨的。甚至他的世界里，仇恨是一个很难的东西。正是因为这样，令狐冲也很少有仇家。他被田伯光坎的奄奄一息，后来却和这个采花大盗成为好友。纵然他对林平之很是吃醋，但是从不忘这个小师弟。纵然岳不群怀疑他，猜忌他，虽然他郁闷了一些日子，却也不放在心上，照样喝酒取乐。甚至，桃谷六仙把他折磨的生不如死，他也从来没真正放在心上。令狐冲式的倔强不是和人过不去，也不是和事情过不去，而是他骨子里的傲气罢了。而林平之式的倔强则是和仇恨生息相关，这也导致了后来他被仇恨冲昏了头脑。&lt;/p&gt;
+&lt;p&gt;至于为什么要说金庸先生偏爱令狐冲。大家且看林平之，林平之是家中娇生惯养的富二代，因此他的性格养成也与父母疼爱有关。令狐冲从小孤苦伶仃，被岳不群收养。在令狐冲长大之时，岳不群还是君子的样子。师父师母都从不会调笑，都是一本正经的人。挂在嘴边的也是满口的道德正义。但是在这样的环境下，令狐冲骨子里那种不羁的灵魂却还是保留下来了。我们要问为什么，只能说，金庸实在是太爱令狐冲了。&lt;/p&gt;
+&lt;p&gt;最后，我们不禁要问，林平之爱岳灵珊吗？令狐冲爱任盈盈吗？第一个问题，不知道。第二个问题，答案却是肯定的。首先回答第一个问题。林平之爱岳灵珊吗？林平之和岳灵珊在一起不过是令狐冲面壁思过时候的事情。金庸在书中并没有细写。电视剧里，把林平之表现的是阴险毒辣，利用岳灵珊达成自己的目的。但实际上，当当这样考虑是不周全的。林平之对这个妻子还是有感情的。在小说之初，林平之就宁可牺牲自己，也不要师父，以及这个师姐受辱。问题在于，这样的感情是纯粹的吗？我们不知道。我们不知道的是林平之被仇恨冲淡了感情还是利用了感情填补他心中的仇恨？但不管怎么样，这样的感情是不纯粹的。甚至他们两个在一起都让人很好奇。岳灵珊贪玩，林平之却只顾着学剑。这样的故事，我们只能说，岳灵珊爱平之是绝对的。但是平之是不是爱这个师姐，我们却不得而知。&lt;/p&gt;
+&lt;p&gt;岳灵珊是个很好的女孩子。人们往往因为她移情别恋而痛恨她。其实我们看的很清楚，这只不过是情窦初开的少女情怀罢了。有人说，岳灵珊的性格是不会移情别恋的，只不过金庸要把这个人的位置让给任盈盈罢了。因为任盈盈实在是太完美了。回到之前的问题，令狐冲爱岳灵珊吗？爱，令狐冲太宠爱他这个小师妹了。但是这一种爱却不是夫妻情人那样的互相怜惜。但是令狐冲对盈盈的感情却是完完全全的爱恋。因为任盈盈实在是太配令狐冲了。我们往往只看到令狐少侠身上那种放荡不羁的样子，以为他和贪玩爱闹的灵珊是一对儿，我们却忘了令狐少侠身上的那种豪气。而他的那种不羁，只不过是他豪气的一种片面的表现罢了。至于任盈盈，我们却也找的到这样的豪气。从出手救自己的情敌，在从和令狐冲对饮，为令狐冲不顾生死，又和江湖上各路豪杰交好却从不是因为所谓的正邪偏见。听她琴身知她细腻，看她舍命救令狐冲知她情深意切，看她设计左冷禅知她冷静多谋。而令狐冲也是这样的人。令狐冲虽不会抚琴，但听到笑傲江湖曲心中登时开朗欢心。他对盈盈也是一往情深。从他的处事的态度，他也是足智多谋，从不拘泥小节。这样的两个人在一起才是千古绝配。&lt;/p&gt;
+&lt;p&gt;一句话来说这两个人。两个性情并无多大差异。起初的处事为人，都能称上一句少侠。但是令狐冲性格不羁，林平之却困于仇恨。因此令狐冲越走越开阔，林平之越走越狭隘，最终把自己逼上绝路。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>念奴娇</title>
       <link>https://yiwei.dev/posts/%E5%BF%B5%E5%A5%B4%E5%A8%87/</link>
       <pubDate>Fri, 22 Mar 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E5%BF%B5%E5%A5%B4%E5%A8%87/</guid>
-      <description>银钩铁划，笑狂吾，信手文章风骨。抽剑平来神鬼事，指点兜鍪艚卒。快意恩仇，情长儿女，拟作痴情物。英雄千古，闲来翻书观雪？ 归去岛上桃花，妙理浊醪，按孔笙箫说。华发刀搁闲驻马，回首千松飞屑。笑傲江湖，轻舟短钓，醉奏逍遥绝。青山共我，微风敲竹云月。</description>
+      <description>&lt;p&gt;银钩铁划，笑狂吾，信手文章风骨。抽剑平来神鬼事，指点兜鍪艚卒。快意恩仇，情长儿女，拟作痴情物。英雄千古，闲来翻书观雪？ 归去岛上桃花，妙理浊醪，按孔笙箫说。华发刀搁闲驻马，回首千松飞屑。笑傲江湖，轻舟短钓，醉奏逍遥绝。青山共我，微风敲竹云月。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>死生契阔，与子成说</title>
       <link>https://yiwei.dev/posts/%E6%AD%BB%E7%94%9F%E5%A5%91%E9%98%94%E4%B8%8E%E5%AD%90%E6%88%90%E8%AF%B4/</link>
       <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%AD%BB%E7%94%9F%E5%A5%91%E9%98%94%E4%B8%8E%E5%AD%90%E6%88%90%E8%AF%B4/</guid>
-      <description>＂执子之手，与子携老＂，字面间，我们可以看出是一对痴心男女的盟约。又有人提出该诗是描述基友之情。今翻阅李辰东先生文，看到此诗的释疑，便程上来给大家分享。注：本文内容原文参见，李辰东，≪诗经通释≫第一编第一卷，水牛出版社印行，民国60年8月15日。在此做一个摘录，翻译以及整理。
-击鼓（郑风） 击鼓其镗（音汤），踊跃用兵。土国城漕，我独南行。从孙子仲，平陈与宋。不我以归，忧心有忡。爰（音原）居爰处，爰丧其马。于以求之，于林之下。死生契阔，与子成说（音悦）。执子之手，与子偕老。于嗟阔兮，不我活兮。于嗟洵（音宣）兮，不我信兮。
-诗意关键：
-第一、“土国城漕”的“漕”在什么地方？
-第二、“从孙子仲”的“孙子仲”是谁？他是什么地方，什么时候的人？他与“漕」又有什么关系？
-第三、“平陈与宋”是什么时候的陈宋？为什么要平定他们？
-第四、“死生契阔，与子成说。执子之手，与子偕老”，一定是一对男女的婚约（李辰东先生原文如是，其正确性在下文探讨），绝对不是对上文孙子仲讲的话。孙子仲是男的，又怎么可能与他白头偕老呢？这首诗里明明就有一对男女，男的就是“我独南行”，“不我以归”，“不我活兮”，“不我信兮”的“我”，也就是诗人。而女方则是“与子成说”，“执子之手”的“子”。但是诗所讲的是“平陈与宋”，又怎么会在平定陈宋时发生恋爱故事呢？
-第五、“爰居爰处”的“居”“处”是在什么地方？“爰丧其马”又是在什么地方？“于以求之，于林之下”的“林”是在什么地方？
-第六、“死生契阔，与子成说”是在什么地方订的婚约？从孙子仲出征的是“我”，“我”是男的，怎么突然出现一位女子？这位女孩子一定于孙子仲有关系，否则怎么会在孙子仲的平陈与宋中出现呢？
-第七、“不我以归，忧心有忡”的“归”是回到什么地方，他们是从什么地方来的？
-这些问题通通都得解决，才能了解这首诗。兹一一解答于下：
-根据顾祖禹的≪读史方舆纪要≫上说有个地方叫白马县，春秋时候呢，卫之曹（应当为漕）邑。又说了白马城在卫南县西南三十四里。又说，今县西北十里有白马古城，一云在县南二十里。顾祖禹这些话是在哪里说的呢？我们查考该书十六卷，可知道，顾祖禹说的是河南省滑县。所以我们可以推测漕在现在的河南省滑县。同样在这一卷中，顾祖禹又说了，“古豕韦氏国，春秋时卫地，汉置白马县”。由此可见，白马县是春秋时的豕韦氏故国。在≪新唐书≫宰相世系表里面说了，刘氏啊在商有豕韦氏，后来被宣王所灭。这就意味着，豕韦氏到了宣王的时候才属于卫国。结合这两点就可以得出一个结论，汉代的白马县就是周代的漕，漕原来是豕韦氏国，到了宣王时被灭属卫。
-接下来我们来研究下孙子仲。同样是≪新唐书≫的宰相世系表中说了，“孙氏出自姬姓。卫康叔八世孙武公和，生公子惠孙，惠孙生耳，为卫上卿，食采于戚，生武仲乙。以父王字为氏，世居汲郡。”还是新唐书的地理志中又说了，“卫州，汲郡望，县五：汲，卫，共城，新郎，黎阳”。于黎阳注说，有白马津。这就意味着，白马津属于汲郡，而且呢卫武公这一支系世世代代所居住的地方。诗上说了“土国城漕，我独南行。从孙子仲，平陈与宋”，这个孙子仲既然在城漕，他一定就是卫国人。豕韦氏又是在宣王的时候被灭改漕属于卫。那么城漕一定是在宣王之后。惠孙是卫武公的儿子，宣王时候的人，又世世代代居住在汲郡。古人聚族而居，在这个地方找孙子仲，自然是惠孙了。孙是辈分，对卫厘侯而言，仲是老二。所以诗人就称他为孙子仲。到他的孙子武仲乙的时候，就拿他的名字作姓了。武仲乙之所以拿祖父名字惠孙的孙做姓，自然是受到诗经的影响。春秋的时候，诗经已经是士大夫必读的课本，等于圣经一样，用诗经中的名字命名的，比比皆是。武仲乙显然知道诗经仲孙子仲就是他祖父，引以为荣，就以孙为姓。否则怎么会无缘无故把自己的姬姓改了呢？所以，我们就以这个人物来解释以下的历史。
-第一点，为什么会有“平陈与宋”呢？先看看陈与宋到底在什么地方。≪读史方舆纪要≫在陈州（今河南淮阳县）这篇中就说了，“周初封舜后妫满于此，为陈国”。因此呢，陈国就在现在的河南省的淮阳县。同样这本书又在商丘县说，“古商丘县为阏伯之墟，春秋宋国都也”。这个地方呢是宋国在现在在河南省的商丘县。刚刚说了，孙子仲就是惠孙，而惠孙是卫厘侯的儿子。于是我们顺着这条路来找为什么“平陈与宋”。≪竹书纪年≫在历年纪下面就说了，“十三年，王在彘，共伯和即于王位，号曰共和”。又说呢，“二十六年，王陟于彘。周公、召公立太子靖为王，共伯和归其国”。≪雷学淇竹书纪年义证≫，引鲁仲连子说，“诸侯逢和以行天子事，号曰共和元年。十四年历王死于彘，共伯使诸侯奉太子靖为王。而共伯复归于卫”。 根据这个文献，我们就可以知道，共伯和是卫国人。我们再看≪史记≫卫康叔世家里面说了，厘侯十三年（前841），周厉王逃亡到彘地，由召公、周公共同掌管政权，号为“共和”行政。厘侯二十八年（前827），周宣王立为天子。四十二年（前813），厘侯逝世，太子共伯余立为国君。共伯之弟和曾被厘侯宠爱，厘侯给了和很多财物，和便用这些财物收买武士，在厘侯的墓地袭击共伯余，共伯被迫逃到厘侯墓道自杀。于是“卫人因葬之厘侯旁，谥曰共伯，而立和为卫侯，是为武公”。所以卫武公就是共伯余的弟弟共伯和。关于共伯和还有共伯余，史学家还有很多讨论，大家可以网上讨论，不陈词于此。
-我们搞清楚了卫武公是共伯和，下面我们来看一下宣王。宣王的复兴与卫国有莫大的关系。宣王就是周宣王，也就是上文所说的“周公、召公立太子靖为王”。宣王是共伯和，周公，召公共同扶立宣王为王，宣王的复兴工作也就从平定陈宋开始。为什么？我们看宣王复兴的时候得两大劲敌。一个是西北的玁狁，一个是东南的淮夷。但是玁狁已经侵略到镐京，情势危急，所以平定淮夷只能拖后。可是问题来了，这个时候的安徽，江苏，山东一带都被淮夷占据，陈宋又在南北的要冲，所以必须要先平定陈宋，才能安心与玁狁作战。我们刚才说到，宣王的复兴的中间人物都与卫国有关，这就解释的通，为什么要平陈与宋。下面还带来一个问题，平陈与宋的时间是哪个时候的事情呢？根据诗经里描述宣王的复兴过程来看，应该是宣王三年。先看完平陈于宋这个时期的诗经的诗篇在做讨论。
-不过击鼓这首诗虽然发生在平陈与宋这个时候，但是描绘的确是一个爱情故事。要知道这个爱情故事，要做一定的了解：现在我们看诗经，是经过整理重排的。这意味着诗经不同处的诗歌可以记载了同一件事情。于是为了找到这个爱情故事的本来样貌。我们把涉及陈宋两国所有的诗篇都拿出来看。这样就发现了诗歌的原貌。比如陈城里面有宛丘，东门之枌篇就说了，“东门之枌，宛丘之其栩。子仲之子，婆娑其下“。子仲之子，把他解释成孙子仲之子，自然是极其自然的。“子仲子之，婆娑其下”的意思的是说，孙子仲的女儿在那下边婆娑起舞。宛丘篇说，“子之汤兮，宛丘之上兮。洵有情兮，而无望兮”。在这一篇中，有提到了她在宛丘跳舞，这不是巧合吧。而后面一句“洵有情兮，而无望兮”表明了这个男的感觉到没有成功的希望。陈城的东门有池，东门之池篇又说了，“东门之池，可以沤麻，彼美淑姬，可与晤歌”。孙子仲是卫人，姬姓，“彼美淑姬”提出了姓氏，这不是无缘无故的吧？可以看出这个女孩子当时住在陈国的东门，所以东门之杨，出其东门这些有关东门的诗歌应该不是无缘无故产生的。再者，东门的北边有邛地，邛地上有一防亭，防亭鹊巢篇就说了，“防有鹊巢，邛有旨苕。谁侜予美？心焉切切”。这首爱情诗描绘的，应该也不是虚构的。那么将这些地名，故事串联起来，我们就可勾出一幅美丽生动的爱情故事来。也就是尹吉甫和孙子仲女儿的爱情故事。至于为什么，在下文有详细解释（至于为什么是爱情不是基友情，下文也会给出说明）。他们不仅在一起恋爱，而且还一起私定婚约。可是定了婚约不久，女的就要回卫国。但是并没有告诉男方。男的到陈城看她时却找不到她，心急到处寻找，一直到株林才找到这个女子。也就是诗中的“于以求之，于林之下”的林了。因此这样通篇诗歌也就解通了。下面逐字解释一下这首诗歌。
-“击鼓其镗（音汤），踊跃用兵”。镗是指击鼓的声音。踊跃就是换了积极之意，用兵也就是练武了。所以这句诗就可以理解为，击鼓镗镗作响，我们在积极的备战。“土国城漕，我独南行”。国原来指的是城漕。古代的时候以土筑城，故曰土国。这里的关键在于“我”。这里的“我”是跟随孙子仲平陈与宋的，征服陈宋以后又回到了卫国。这个“我”呢又在和孙子仲的女儿在谈恋爱。这个需要整理卫国的诗歌。但是这里我们就可认为这个“我”是尹吉甫。“我独南行”就是单独派我到了南边，陈宋在卫国之南。所以也就是到了陈宋之地。
-“从孙子仲，平陈与宋。不我以归，忧心有忡”。也就是跟着孙子仲去平地陈宋。“不我以归”是指孙子仲的女儿回卫国去了，但是这个男的却没有回去。所以导致的结果就是忧心有忡。忡，充，古通。所以忧心有忡就可以理解为内心被忧伤充满。 “爰（音原）居爰处，爰丧其马。于以求之，于林之下”。爰的意思可以解为“于之”。孙子仲的女儿居住在东门，尹吉甫常来看她。后来这个女孩子回去了卫国，这个男孩再来找他的时侯找不到了。但是在哪里又找到了这个女孩呢？便是于林之下了。连起来整句话的意思就是，她在这里居，她在这里住。可是来寻找她的时候，却不见了她的马。于是我到处寻找，终于这林（株林）中找到了这个女子。
-“死生契阔，与子成说（音悦）。执子之手，与子偕老“。这是全诗意义最为关键重大的一句。关于契阔的解释拿不准就影响到了全诗。毛序解释为殷勤，勤劳，从而推出这是描写基友情的一首诗。这样的解释牵强附会。契，即为默契的契。所谓合也，而阔就是分别的意思了。所以死生契阔的意思就为生死离合。与子成说。这一个字不应该读shuo，而应该读成他的通假字yue。解释为相好，相悦。而百度上解释为shuo，誓言也是不可靠的。说也没有誓言之意。后面一句，显而易见。所以整句话就是，（曾今与你相好）生死离别，我都要于你在一起，彼此相悦。咱们手牵着手，一起白头偕老。
-”于嗟阔兮，不我活兮。于嗟洵（音宣）兮，不我信兮“。活，应当是“佸”，会的意思，而洵则为远的意思。于嗟一种感叹的发语。我们可以感觉到作者一种悲伤的情感在里面。结合这一点，诗意不难解释，现在我们要离别了，不要在与我见面了。现在远离了，也不要相信我了（这是李辰冬先生给的，我认为可以引申为，以前的誓言就让它远去吧，诸如此类的意向）。
-全文看来，击鼓完完全全就是一首爱情诗歌，只不过不是一首相爱白头携老的诗歌，而是一首两人分手离别的感叹。
-至于大家所说的基友情，则来自于百度知道。百度知道曾今搞了一个活动，所谓的改正大家用错的诗句。但其实这个活动反而是改错了（在这里不由的抨击百度，在明显学术上有争议，而且学术观点倾向于现在的时候，百度为了抢眼球竟然出现这种误人子弟的事情）。</description>
+      <description>&lt;p&gt;＂执子之手，与子携老＂，字面间，我们可以看出是一对痴心男女的盟约。又有人提出该诗是描述基友之情。今翻阅李辰东先生文，看到此诗的释疑，便程上来给大家分享。注：本文内容原文参见，李辰东，≪诗经通释≫第一编第一卷，水牛出版社印行，民国60年8月15日。在此做一个摘录，翻译以及整理。&lt;/p&gt;
+&lt;p&gt;击鼓（郑风） 击鼓其镗（音汤），踊跃用兵。土国城漕，我独南行。从孙子仲，平陈与宋。不我以归，忧心有忡。爰（音原）居爰处，爰丧其马。于以求之，于林之下。死生契阔，与子成说（音悦）。执子之手，与子偕老。于嗟阔兮，不我活兮。于嗟洵（音宣）兮，不我信兮。&lt;/p&gt;
+&lt;p&gt;诗意关键：&lt;/p&gt;
+&lt;p&gt;第一、“土国城漕”的“漕”在什么地方？&lt;/p&gt;
+&lt;p&gt;第二、“从孙子仲”的“孙子仲”是谁？他是什么地方，什么时候的人？他与“漕」又有什么关系？&lt;/p&gt;
+&lt;p&gt;第三、“平陈与宋”是什么时候的陈宋？为什么要平定他们？&lt;/p&gt;
+&lt;p&gt;第四、“死生契阔，与子成说。执子之手，与子偕老”，一定是一对男女的婚约（李辰东先生原文如是，其正确性在下文探讨），绝对不是对上文孙子仲讲的话。孙子仲是男的，又怎么可能与他白头偕老呢？这首诗里明明就有一对男女，男的就是“我独南行”，“不我以归”，“不我活兮”，“不我信兮”的“我”，也就是诗人。而女方则是“与子成说”，“执子之手”的“子”。但是诗所讲的是“平陈与宋”，又怎么会在平定陈宋时发生恋爱故事呢？&lt;/p&gt;
+&lt;p&gt;第五、“爰居爰处”的“居”“处”是在什么地方？“爰丧其马”又是在什么地方？“于以求之，于林之下”的“林”是在什么地方？&lt;/p&gt;
+&lt;p&gt;第六、“死生契阔，与子成说”是在什么地方订的婚约？从孙子仲出征的是“我”，“我”是男的，怎么突然出现一位女子？这位女孩子一定于孙子仲有关系，否则怎么会在孙子仲的平陈与宋中出现呢？&lt;/p&gt;
+&lt;p&gt;第七、“不我以归，忧心有忡”的“归”是回到什么地方，他们是从什么地方来的？&lt;/p&gt;
+&lt;p&gt;这些问题通通都得解决，才能了解这首诗。兹一一解答于下：&lt;/p&gt;
+&lt;p&gt;根据顾祖禹的≪读史方舆纪要≫上说有个地方叫白马县，春秋时候呢，卫之曹（应当为漕）邑。又说了白马城在卫南县西南三十四里。又说，今县西北十里有白马古城，一云在县南二十里。顾祖禹这些话是在哪里说的呢？我们查考该书十六卷，可知道，顾祖禹说的是河南省滑县。所以我们可以推测漕在现在的河南省滑县。同样在这一卷中，顾祖禹又说了，“古豕韦氏国，春秋时卫地，汉置白马县”。由此可见，白马县是春秋时的豕韦氏故国。在≪新唐书≫宰相世系表里面说了，刘氏啊在商有豕韦氏，后来被宣王所灭。这就意味着，豕韦氏到了宣王的时候才属于卫国。结合这两点就可以得出一个结论，汉代的白马县就是周代的漕，漕原来是豕韦氏国，到了宣王时被灭属卫。&lt;/p&gt;
+&lt;p&gt;接下来我们来研究下孙子仲。同样是≪新唐书≫的宰相世系表中说了，“孙氏出自姬姓。卫康叔八世孙武公和，生公子惠孙，惠孙生耳，为卫上卿，食采于戚，生武仲乙。以父王字为氏，世居汲郡。”还是新唐书的地理志中又说了，“卫州，汲郡望，县五：汲，卫，共城，新郎，黎阳”。于黎阳注说，有白马津。这就意味着，白马津属于汲郡，而且呢卫武公这一支系世世代代所居住的地方。诗上说了“土国城漕，我独南行。从孙子仲，平陈与宋”，这个孙子仲既然在城漕，他一定就是卫国人。豕韦氏又是在宣王的时候被灭改漕属于卫。那么城漕一定是在宣王之后。惠孙是卫武公的儿子，宣王时候的人，又世世代代居住在汲郡。古人聚族而居，在这个地方找孙子仲，自然是惠孙了。孙是辈分，对卫厘侯而言，仲是老二。所以诗人就称他为孙子仲。到他的孙子武仲乙的时候，就拿他的名字作姓了。武仲乙之所以拿祖父名字惠孙的孙做姓，自然是受到诗经的影响。春秋的时候，诗经已经是士大夫必读的课本，等于圣经一样，用诗经中的名字命名的，比比皆是。武仲乙显然知道诗经仲孙子仲就是他祖父，引以为荣，就以孙为姓。否则怎么会无缘无故把自己的姬姓改了呢？所以，我们就以这个人物来解释以下的历史。&lt;/p&gt;
+&lt;p&gt;第一点，为什么会有“平陈与宋”呢？先看看陈与宋到底在什么地方。≪读史方舆纪要≫在陈州（今河南淮阳县）这篇中就说了，“周初封舜后妫满于此，为陈国”。因此呢，陈国就在现在的河南省的淮阳县。同样这本书又在商丘县说，“古商丘县为阏伯之墟，春秋宋国都也”。这个地方呢是宋国在现在在河南省的商丘县。刚刚说了，孙子仲就是惠孙，而惠孙是卫厘侯的儿子。于是我们顺着这条路来找为什么“平陈与宋”。≪竹书纪年≫在历年纪下面就说了，“十三年，王在彘，共伯和即于王位，号曰共和”。又说呢，“二十六年，王陟于彘。周公、召公立太子靖为王，共伯和归其国”。≪雷学淇竹书纪年义证≫，引鲁仲连子说，“诸侯逢和以行天子事，号曰共和元年。十四年历王死于彘，共伯使诸侯奉太子靖为王。而共伯复归于卫”。 根据这个文献，我们就可以知道，共伯和是卫国人。我们再看≪史记≫卫康叔世家里面说了，厘侯十三年（前841），周厉王逃亡到彘地，由召公、周公共同掌管政权，号为“共和”行政。厘侯二十八年（前827），周宣王立为天子。四十二年（前813），厘侯逝世，太子共伯余立为国君。共伯之弟和曾被厘侯宠爱，厘侯给了和很多财物，和便用这些财物收买武士，在厘侯的墓地袭击共伯余，共伯被迫逃到厘侯墓道自杀。于是“卫人因葬之厘侯旁，谥曰共伯，而立和为卫侯，是为武公”。所以卫武公就是共伯余的弟弟共伯和。关于共伯和还有共伯余，史学家还有很多讨论，大家可以网上讨论，不陈词于此。&lt;/p&gt;
+&lt;p&gt;我们搞清楚了卫武公是共伯和，下面我们来看一下宣王。宣王的复兴与卫国有莫大的关系。宣王就是周宣王，也就是上文所说的“周公、召公立太子靖为王”。宣王是共伯和，周公，召公共同扶立宣王为王，宣王的复兴工作也就从平定陈宋开始。为什么？我们看宣王复兴的时候得两大劲敌。一个是西北的玁狁，一个是东南的淮夷。但是玁狁已经侵略到镐京，情势危急，所以平定淮夷只能拖后。可是问题来了，这个时候的安徽，江苏，山东一带都被淮夷占据，陈宋又在南北的要冲，所以必须要先平定陈宋，才能安心与玁狁作战。我们刚才说到，宣王的复兴的中间人物都与卫国有关，这就解释的通，为什么要平陈与宋。下面还带来一个问题，平陈与宋的时间是哪个时候的事情呢？根据诗经里描述宣王的复兴过程来看，应该是宣王三年。先看完平陈于宋这个时期的诗经的诗篇在做讨论。&lt;/p&gt;
+&lt;p&gt;不过击鼓这首诗虽然发生在平陈与宋这个时候，但是描绘的确是一个爱情故事。要知道这个爱情故事，要做一定的了解：现在我们看诗经，是经过整理重排的。这意味着诗经不同处的诗歌可以记载了同一件事情。于是为了找到这个爱情故事的本来样貌。我们把涉及陈宋两国所有的诗篇都拿出来看。这样就发现了诗歌的原貌。比如陈城里面有宛丘，东门之枌篇就说了，“东门之枌，宛丘之其栩。子仲之子，婆娑其下“。子仲之子，把他解释成孙子仲之子，自然是极其自然的。“子仲子之，婆娑其下”的意思的是说，孙子仲的女儿在那下边婆娑起舞。宛丘篇说，“子之汤兮，宛丘之上兮。洵有情兮，而无望兮”。在这一篇中，有提到了她在宛丘跳舞，这不是巧合吧。而后面一句“洵有情兮，而无望兮”表明了这个男的感觉到没有成功的希望。陈城的东门有池，东门之池篇又说了，“东门之池，可以沤麻，彼美淑姬，可与晤歌”。孙子仲是卫人，姬姓，“彼美淑姬”提出了姓氏，这不是无缘无故的吧？可以看出这个女孩子当时住在陈国的东门，所以东门之杨，出其东门这些有关东门的诗歌应该不是无缘无故产生的。再者，东门的北边有邛地，邛地上有一防亭，防亭鹊巢篇就说了，“防有鹊巢，邛有旨苕。谁侜予美？心焉切切”。这首爱情诗描绘的，应该也不是虚构的。那么将这些地名，故事串联起来，我们就可勾出一幅美丽生动的爱情故事来。也就是尹吉甫和孙子仲女儿的爱情故事。至于为什么，在下文有详细解释（至于为什么是爱情不是基友情，下文也会给出说明）。他们不仅在一起恋爱，而且还一起私定婚约。可是定了婚约不久，女的就要回卫国。但是并没有告诉男方。男的到陈城看她时却找不到她，心急到处寻找，一直到株林才找到这个女子。也就是诗中的“于以求之，于林之下”的林了。因此这样通篇诗歌也就解通了。下面逐字解释一下这首诗歌。&lt;/p&gt;
+&lt;p&gt;“击鼓其镗（音汤），踊跃用兵”。镗是指击鼓的声音。踊跃就是换了积极之意，用兵也就是练武了。所以这句诗就可以理解为，击鼓镗镗作响，我们在积极的备战。“土国城漕，我独南行”。国原来指的是城漕。古代的时候以土筑城，故曰土国。这里的关键在于“我”。这里的“我”是跟随孙子仲平陈与宋的，征服陈宋以后又回到了卫国。这个“我”呢又在和孙子仲的女儿在谈恋爱。这个需要整理卫国的诗歌。但是这里我们就可认为这个“我”是尹吉甫。“我独南行”就是单独派我到了南边，陈宋在卫国之南。所以也就是到了陈宋之地。&lt;/p&gt;
+&lt;p&gt;“从孙子仲，平陈与宋。不我以归，忧心有忡”。也就是跟着孙子仲去平地陈宋。“不我以归”是指孙子仲的女儿回卫国去了，但是这个男的却没有回去。所以导致的结果就是忧心有忡。忡，充，古通。所以忧心有忡就可以理解为内心被忧伤充满。 “爰（音原）居爰处，爰丧其马。于以求之，于林之下”。爰的意思可以解为“于之”。孙子仲的女儿居住在东门，尹吉甫常来看她。后来这个女孩子回去了卫国，这个男孩再来找他的时侯找不到了。但是在哪里又找到了这个女孩呢？便是于林之下了。连起来整句话的意思就是，她在这里居，她在这里住。可是来寻找她的时候，却不见了她的马。于是我到处寻找，终于这林（株林）中找到了这个女子。&lt;/p&gt;
+&lt;p&gt;“死生契阔，与子成说（音悦）。执子之手，与子偕老“。这是全诗意义最为关键重大的一句。关于契阔的解释拿不准就影响到了全诗。毛序解释为殷勤，勤劳，从而推出这是描写基友情的一首诗。这样的解释牵强附会。契，即为默契的契。所谓合也，而阔就是分别的意思了。所以死生契阔的意思就为生死离合。与子成说。这一个字不应该读shuo，而应该读成他的通假字yue。解释为相好，相悦。而百度上解释为shuo，誓言也是不可靠的。说也没有誓言之意。后面一句，显而易见。所以整句话就是，（曾今与你相好）生死离别，我都要于你在一起，彼此相悦。咱们手牵着手，一起白头偕老。&lt;/p&gt;
+&lt;p&gt;”于嗟阔兮，不我活兮。于嗟洵（音宣）兮，不我信兮“。活，应当是“佸”，会的意思，而洵则为远的意思。于嗟一种感叹的发语。我们可以感觉到作者一种悲伤的情感在里面。结合这一点，诗意不难解释，现在我们要离别了，不要在与我见面了。现在远离了，也不要相信我了（这是李辰冬先生给的，我认为可以引申为，以前的誓言就让它远去吧，诸如此类的意向）。&lt;/p&gt;
+&lt;p&gt;全文看来，击鼓完完全全就是一首爱情诗歌，只不过不是一首相爱白头携老的诗歌，而是一首两人分手离别的感叹。&lt;/p&gt;
+&lt;p&gt;至于大家所说的基友情，则来自于百度知道。百度知道曾今搞了一个活动，所谓的改正大家用错的诗句。但其实这个活动反而是改错了（在这里不由的抨击百度，在明显学术上有争议，而且学术观点倾向于现在的时候，百度为了抢眼球竟然出现这种误人子弟的事情）。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>满江红·别友人远游</title>
       <link>https://yiwei.dev/posts/%E6%BB%A1%E6%B1%9F%E7%BA%A2%E5%88%AB%E5%8F%8B%E4%BA%BA%E8%BF%9C%E6%B8%B8/</link>
       <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%BB%A1%E6%B1%9F%E7%BA%A2%E5%88%AB%E5%8F%8B%E4%BA%BA%E8%BF%9C%E6%B8%B8/</guid>
-      <description>余将远游，与友赋诗共酒，歌数阕，不由泪下以作此词，再歌，酣然大醉焉。
-八斗文章，堪寻访，建安风骨。谈笑里、东坡词黯，杜郎诗缺。三尺青蛇击逆虏，不堪苦恨惆怅结。遣行客，叹此事无关，干风月。 秦关好，伤离别。击悲筑，衣如雪。怅西风悲切，杜鹃啼血。游宦年年悲白发，可怜故国清秋节。君思我，回首笑人间，闻歌阕。</description>
+      <description>&lt;p&gt;余将远游，与友赋诗共酒，歌数阕，不由泪下以作此词，再歌，酣然大醉焉。&lt;/p&gt;
+&lt;p&gt;八斗文章，堪寻访，建安风骨。谈笑里、东坡词黯，杜郎诗缺。三尺青蛇击逆虏，不堪苦恨惆怅结。遣行客，叹此事无关，干风月。 秦关好，伤离别。击悲筑，衣如雪。怅西风悲切，杜鹃啼血。游宦年年悲白发，可怜故国清秋节。君思我，回首笑人间，闻歌阕。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>自题</title>
       <link>https://yiwei.dev/posts/%E8%87%AA%E9%A2%98/</link>
       <pubDate>Sat, 26 Feb 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E8%87%AA%E9%A2%98/</guid>
-      <description>一枝笔，一方砚。 一竹青箫，一霜寒剑。 别来情未减，斟一樽忘返留连。 轻奏菩萨蛮，试演临江仙。 目断秋霄落雁，醉来时响空弦。 一寸稠墨，把草堂翰林染遍。 暂回眸，再访太白放翁牧之与乐天。 书一川江南，掬一表闺怨。 楼上千帆过尽不是，阁下枯荷听雨窗前。 月绕松林花间竹苑。 竹杖芒鞋瘦马，竿纶玉箫舸舰。 一抹寒江雪，一蓑轻雨烟。 笑谈几朝乐事，狂书几车竹简。 繁华惊变，一杯醇酒，不自的旋。 且任一生逍遥，长醉京华二十年。</description>
+      <description>&lt;p&gt;一枝笔，一方砚。 一竹青箫，一霜寒剑。 别来情未减，斟一樽忘返留连。 轻奏菩萨蛮，试演临江仙。 目断秋霄落雁，醉来时响空弦。 一寸稠墨，把草堂翰林染遍。 暂回眸，再访太白放翁牧之与乐天。 书一川江南，掬一表闺怨。 楼上千帆过尽不是，阁下枯荷听雨窗前。 月绕松林花间竹苑。 竹杖芒鞋瘦马，竿纶玉箫舸舰。 一抹寒江雪，一蓑轻雨烟。 笑谈几朝乐事，狂书几车竹简。 繁华惊变，一杯醇酒，不自的旋。 且任一生逍遥，长醉京华二十年。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>侠客</title>
       <link>https://yiwei.dev/posts/%E4%BE%A0%E5%AE%A2/</link>
       <pubDate>Sun, 09 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E4%BE%A0%E5%AE%A2/</guid>
-      <description>雕弓羽箭，呼鹰古垒，暴虎危山。冯河涉险，悬崖飞探，终抽的鱼肠龙渊。云游水转，日暴竹编，雪压青毡。淋漓醉墨，三分入木，看龙蛇飞落蛮笺。浮屠拐子，会杀天狼恶虎。诗情将略，一时才气超然。平生事，最好当时少年。我欲倚天抽宝剑，裁得星月三千。再欲笑谈风雨间，寻得太白稼轩。最欲解佩遗嘉妍，赢得昭君飞燕。桂花斟一樽美酒，问君予尔谁先？琉璃烫一柄龙泉，试为舞作一片。纵壮志，欲问成败谁边？有豪情，拟载千秋诗言。一叶扁舟一箫剑，一曲古音一笔砚。归去？散发狂颜。寻见？斯人谓作逸轩。</description>
+      <description>&lt;p&gt;雕弓羽箭，呼鹰古垒，暴虎危山。冯河涉险，悬崖飞探，终抽的鱼肠龙渊。云游水转，日暴竹编，雪压青毡。淋漓醉墨，三分入木，看龙蛇飞落蛮笺。浮屠拐子，会杀天狼恶虎。诗情将略，一时才气超然。平生事，最好当时少年。我欲倚天抽宝剑，裁得星月三千。再欲笑谈风雨间，寻得太白稼轩。最欲解佩遗嘉妍，赢得昭君飞燕。桂花斟一樽美酒，问君予尔谁先？琉璃烫一柄龙泉，试为舞作一片。纵壮志，欲问成败谁边？有豪情，拟载千秋诗言。一叶扁舟一箫剑，一曲古音一笔砚。归去？散发狂颜。寻见？斯人谓作逸轩。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>洛神</title>
       <link>https://yiwei.dev/posts/%E6%B4%9B%E7%A5%9E/</link>
       <pubDate>Sun, 21 Nov 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/%E6%B4%9B%E7%A5%9E/</guid>
-      <description>余从川蜀，归至杭都。穿蜀道，越长江，过险山，涉急湍。途经洛阳，解辔寄旅。人疲马倦，奔劳多累。六龙回驾，金乌渐隐，寒烟欲笼，流霞将颓。俯仰乾坤，犹觉天地之黯淡，察望皎月，忽感广寒之余悲。同行见我寂寂，笑谓曰：吾闻洛神，居于洛水。玉颜红袂，闻名宓妃。纤身弄巧，嫩葱扬琴，采采兮若处子之怀玉，涓涓兮若暮春之浽溦。媛女若此，曷不顾之？
-于是乎余下马独行，至洛水之濒。情移神骸，忽焉思散。倚岩和衣而睡，少顷，闻一人呼，逸卿。余奇之，环而睹一丽人，步凌波于山隅，怀玙璠而逸美。叹曰：此何人哉？其洛神乎？之倾城者，无可比之。
-其形也，娇若芙蓉，纤若秋枫。动则沉鱼，翩则惊鸿。飜飖兮若凫鸟之穿流霞，含婉兮若碧柳之濯渌波。远而望之，则若烟水蒙蒙；迫而察之，则若露雾寒淞。冰肌璐质，霜颈瑶承，明眸若黛，蕳睫如幪。藏玉扇以羞涩兮，射急电而嗔怒。闭爽目以倦怠兮，扬修眉而欢愉。皓齿璞琚，敛于丹唇，柔情绰态，讷于语言。凝脂流香，姝于粉靥；螓首叆霼，艾于素颜。佩琬琰之皓洁兮，腰木兰之薆熏。戴金翠之首饰兮，被璀璨之华衣。采兰芷之芳美兮，击流水之微漪。噫！此真仙人邪！其美之至极矣。
-其声也，婉若鹅绒，柔弱春风。潺潺兮若山溪之鸣说，铮铮兮若纤指之抚弦。清澈兮若歌鸟之婉转，温暖兮若太阳之华暄。口含蘼麝，气吐幽兰。姚琼璧之皎洁，声佩璐之珊珊。灼芙蕖之姿态，托言辞之欣欢。
-善哉！余奇之，恭然而问：小生不知仙子何人？曷故至于斯域？莞尔而不答。再顾之，以去。
-余归以告之，曰：其洛神乎？其姿态于臆久矣。</description>
+      <description>&lt;p&gt;余从川蜀，归至杭都。穿蜀道，越长江，过险山，涉急湍。途经洛阳，解辔寄旅。人疲马倦，奔劳多累。六龙回驾，金乌渐隐，寒烟欲笼，流霞将颓。俯仰乾坤，犹觉天地之黯淡，察望皎月，忽感广寒之余悲。同行见我寂寂，笑谓曰：吾闻洛神，居于洛水。玉颜红袂，闻名宓妃。纤身弄巧，嫩葱扬琴，采采兮若处子之怀玉，涓涓兮若暮春之浽溦。媛女若此，曷不顾之？&lt;/p&gt;
+&lt;p&gt;于是乎余下马独行，至洛水之濒。情移神骸，忽焉思散。倚岩和衣而睡，少顷，闻一人呼，逸卿。余奇之，环而睹一丽人，步凌波于山隅，怀玙璠而逸美。叹曰：此何人哉？其洛神乎？之倾城者，无可比之。&lt;/p&gt;
+&lt;p&gt;其形也，娇若芙蓉，纤若秋枫。动则沉鱼，翩则惊鸿。飜飖兮若凫鸟之穿流霞，含婉兮若碧柳之濯渌波。远而望之，则若烟水蒙蒙；迫而察之，则若露雾寒淞。冰肌璐质，霜颈瑶承，明眸若黛，蕳睫如幪。藏玉扇以羞涩兮，射急电而嗔怒。闭爽目以倦怠兮，扬修眉而欢愉。皓齿璞琚，敛于丹唇，柔情绰态，讷于语言。凝脂流香，姝于粉靥；螓首叆霼，艾于素颜。佩琬琰之皓洁兮，腰木兰之薆熏。戴金翠之首饰兮，被璀璨之华衣。采兰芷之芳美兮，击流水之微漪。噫！此真仙人邪！其美之至极矣。&lt;/p&gt;
+&lt;p&gt;其声也，婉若鹅绒，柔弱春风。潺潺兮若山溪之鸣说，铮铮兮若纤指之抚弦。清澈兮若歌鸟之婉转，温暖兮若太阳之华暄。口含蘼麝，气吐幽兰。姚琼璧之皎洁，声佩璐之珊珊。灼芙蕖之姿态，托言辞之欣欢。&lt;/p&gt;
+&lt;p&gt;善哉！余奇之，恭然而问：小生不知仙子何人？曷故至于斯域？莞尔而不答。再顾之，以去。&lt;/p&gt;
+&lt;p&gt;余归以告之，曰：其洛神乎？其姿态于臆久矣。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

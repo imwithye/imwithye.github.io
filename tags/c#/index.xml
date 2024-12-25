@@ -2,19 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>C# on 禅心剑气相思骨</title>
-    <link>https://yiwei.dev/tags/c#/</link>
+    <link>https://yiwei.dev/tags/c%23/</link>
     <description>Recent content in C# on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 16 Nov 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Nov 2020 11:30:03 +0000</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Asynchronous function in Unity</title>
       <link>https://yiwei.dev/posts/asynchronous-function-in-unity/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/posts/asynchronous-function-in-unity/</guid>
-      <description>Async and await keyword Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like Start, Update, now it supports the async version, and with the async keyword in the front, the function now will be dispatched asynchronously automatically by the engine.
-private async void Start() { Debug.Log(&amp;#34;Start task delay 2 seconds&amp;#34;); await Task.Delay(TimeSpan.FromSeconds(2)); Debug.Log(&amp;#34;Task delay 2 finished&amp;#34;); } The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.</description>
+      <description>&lt;h2 id=&#34;async-and-await-keyword&#34;&gt;Async and await keyword&lt;/h2&gt;
+&lt;p&gt;Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like &lt;code&gt;Start&lt;/code&gt;, &lt;code&gt;Update&lt;/code&gt;, now it supports the async version, and with the &lt;code&gt;async&lt;/code&gt; keyword in the front, the function now will be dispatched asynchronously automatically by the engine.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Start task delay 2 seconds&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; Task.Delay(TimeSpan.FromSeconds(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Task delay 2 finished&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.
+The C# build-in HTTP library also provides a nice async wrapper, which can be used in the asynchronous MonoBehaviour as well.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

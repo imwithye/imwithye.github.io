@@ -4,196 +4,184 @@
     <title>Tags on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/</link>
     <description>Recent content in Tags on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Dec 2024 15:00:00 +0800</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>cluster</title>
+      <title>Akuity</title>
+      <link>https://yiwei.dev/tags/akuity/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/tags/akuity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ArgoCD</title>
+      <link>https://yiwei.dev/tags/argocd/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/tags/argocd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://yiwei.dev/tags/github-actions/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://yiwei.dev/tags/kubernetes/</link>
+      <pubDate>Wed, 25 Dec 2024 15:00:00 +0800</pubDate>
+      <guid>https://yiwei.dev/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cluster</title>
       <link>https://yiwei.dev/tags/cluster/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/cluster/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>k3s</title>
+      <title>K3s</title>
       <link>https://yiwei.dev/tags/k3s/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/k3s/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>k8s</title>
+      <title>K8s</title>
       <link>https://yiwei.dev/tags/k8s/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/k8s/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>GitHub</title>
       <link>https://yiwei.dev/tags/github/</link>
       <pubDate>Tue, 02 Jul 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/github/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Math</title>
       <link>https://yiwei.dev/tags/math/</link>
       <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/math/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Computer Vision</title>
       <link>https://yiwei.dev/tags/computer-vision/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/computer-vision/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MATLAB</title>
       <link>https://yiwei.dev/tags/matlab/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/matlab/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SLAM</title>
       <link>https://yiwei.dev/tags/slam/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/slam/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>算法</title>
       <link>https://yiwei.dev/tags/%E7%AE%97%E6%B3%95/</link>
       <pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>LaTex</title>
       <link>https://yiwei.dev/tags/latex/</link>
       <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/latex/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>随笔</title>
       <link>https://yiwei.dev/tags/%E9%9A%8F%E7%AC%94/</link>
       <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Computer Graphics</title>
       <link>https://yiwei.dev/tags/computer-graphics/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/computer-graphics/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Rendering</title>
       <link>https://yiwei.dev/tags/rendering/</link>
       <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/rendering/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>思考</title>
       <link>https://yiwei.dev/tags/%E6%80%9D%E8%80%83/</link>
       <pubDate>Thu, 24 Dec 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E6%80%9D%E8%80%83/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>政治</title>
       <link>https://yiwei.dev/tags/%E6%94%BF%E6%B2%BB/</link>
       <pubDate>Thu, 24 Dec 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E6%94%BF%E6%B2%BB/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C#</title>
-      <link>https://yiwei.dev/tags/c#/</link>
+      <link>https://yiwei.dev/tags/c%23/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      
-      <guid>https://yiwei.dev/tags/c#/</guid>
+      <guid>https://yiwei.dev/tags/c%23/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Programming</title>
       <link>https://yiwei.dev/tags/programming/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/programming/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Unity</title>
       <link>https://yiwei.dev/tags/unity/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/unity/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Presentations</title>
       <link>https://yiwei.dev/tags/presentations/</link>
       <pubDate>Sun, 12 Jul 2020 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/presentations/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>游戏</title>
       <link>https://yiwei.dev/tags/%E6%B8%B8%E6%88%8F/</link>
       <pubDate>Sun, 08 Jul 2018 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E6%B8%B8%E6%88%8F/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>诗</title>
       <link>https://yiwei.dev/tags/%E8%AF%97/</link>
       <pubDate>Tue, 28 Feb 2017 11:30:03 +0000</pubDate>
-      
       <guid>https://yiwei.dev/tags/%E8%AF%97/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

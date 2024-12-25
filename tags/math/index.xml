@@ -4,27 +4,43 @@
     <title>Math on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/math/</link>
     <description>Recent content in Math on 禅心剑气相思骨</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yiwei.dev/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yiwei.dev/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>非线性优化 - Ceres Solver</title>
-      <link>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</link>
+      <link>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/</link>
       <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96-ceres-solver/</guid>
-      <description>我们考虑这个优化问题：
-$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
-$$ \text{s.t.} \quad l_j \le x_j \le u_j $$
-这个问题又称为非线性最小二乘问题。
-具体来说，我们寻找$x$的最小值，并且$x$满足了约束$l_j \le x_j \le u_j$，使得函数$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$的和最小。我们又把$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$称之为残差块（ResidualBlock），$f_i (x_{i_1}, &amp;hellip; ,x_{i_k})$成为代价函数（CostFunction），且依赖于$x_i$。$x_i$称为参数块（ParameterBlock）。同时参数块受到了$l_i$和$u_i$的约束。
-特别的这里的$\rho_i$称为损失函数（LossFunction），用于减少外值对解的影响。
-特别的，当我们的$\rho_i = f(x) = x$且上下界都为无穷大时，我们的问题简化为:
-$$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right) $$
-一个最简单的例子 我们考虑优化一个函数：
-$$ \frac{1}{2}(10-x)^2 $$
-我们用Ceres Solver来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数
-struct CostFunctor { template &amp;lt;typename T&amp;gt; bool operator()(const T* const x, T* residual) const { residual[0] = 10.</description>
+      <guid>https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/</guid>
+      <description>&lt;p&gt;我们考虑这个优化问题：&lt;/p&gt;
+&lt;p&gt;$$
+\min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\text{s.t.} \quad l_j \le x_j \le u_j
+$$&lt;/p&gt;
+&lt;p&gt;这个问题又称为&lt;strong&gt;非线性最小二乘&lt;/strong&gt;问题。&lt;/p&gt;
+&lt;p&gt;具体来说，我们寻找$x$的最小值，并且$x$满足了约束$l_j \le x_j \le u_j$，使得函数$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$的和最小。我们又把$\rho_i \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)$称之为&lt;strong&gt;残差块（ResidualBlock）&lt;/strong&gt;，$f_i (x_{i_1}, &amp;hellip; ,x_{i_k})$成为&lt;strong&gt;代价函数（CostFunction）&lt;/strong&gt;，且依赖于$x_i$。$x_i$称为&lt;strong&gt;参数块（ParameterBlock）&lt;/strong&gt;。同时参数块受到了$l_i$和$u_i$的约束。&lt;/p&gt;
+&lt;p&gt;特别的这里的$\rho_i$称为&lt;strong&gt;损失函数（LossFunction）&lt;/strong&gt;，用于减少外值对解的影响。&lt;/p&gt;
+&lt;p&gt;特别的，当我们的$\rho_i = f(x) = x$且上下界都为无穷大时，我们的问题简化为:&lt;/p&gt;
+&lt;p&gt;$$
+\min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, &amp;hellip; ,x_{i_k})||^2\right)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;一个最简单的例子&#34;&gt;一个最简单的例子&lt;/h2&gt;
+&lt;p&gt;我们考虑优化一个函数：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{1}{2}(10-x)^2
+$$&lt;/p&gt;
+&lt;p&gt;我们用&lt;code&gt;Ceres Solver&lt;/code&gt;来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CostFunctor&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typename&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;operator&lt;/span&gt;()(&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; x, T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; residual) &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        residual[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10.0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; x[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在我们可以解决这个优化问题：&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
