@@ -15,7 +15,7 @@ This post covers deploying a self-hosted runner using **ArgoCD** and the **Akuit
 
 ArgoCD ensures Kubernetes clusters align with Git-defined states, simplifying management and improving consistency. While ArgoCD is powerful, the Akuity Platform enhances it with added security, usability, and its **KubeVision** tool for efficient Kubernetes resource visualization and troubleshooting.
 
----
+![](/img-posts/arc-akuity-intro.png)
 
 In the next section, we’ll walk through the step-by-step process of deploying a self-hosted GitHub Actions runner in Kubernetes using ArgoCD and the Akuity Platform. This approach provides a scalable, cost-effective, and easily manageable solution for running GitHub Actions workflows.
 
@@ -109,3 +109,35 @@ jobs:
 ```
 
 This workflow will be executed by the self-hosted runner in the `arc-runner` namespace.
+
+## One More Thing - Monitor Your Actions with KubeVision!
+
+The Akuity Platform offers powerful KubeVision capabilities, enabling seamless monitoring and management of your GitHub Actions workflows!
+
+Start by navigating to the KubeVision UI and switching to the `arc-runner` namespace.
+
+![](/img-posts/arc-akuity-kubevision-1.png)
+
+In the resource tree view, you'll find a well-organized hierarchical display of your GitHub Actions Runner and its associated pods.
+
+![](/img-posts/arc-akuity-kubevision-2.png)
+
+KubeVision provides comprehensive visibility into your runners, including detailed pod information and logs. Simply click on any runner pod to access its event timeline in the events tab.
+
+![](/img-posts/arc-akuity-kubevision-3.png)
+
+The infrastructure tab offers an extensive overview of your runner deployment, featuring:
+
+- Visualization of runner pod distribution across Kubernetes cluster nodes
+- Detailed monitoring of resource allocation and utilization per node (CPU, memory, etc.)
+- Real-time infrastructure health metrics
+
+![](/img-posts/arc-akuity-kubevision-4.png)
+
+# Try It Out!
+
+Akuity Platform is free to try! Sign up for a free trial and start monitoring your GitHub Actions workflows today!
+
+[Sign up for a free trial](https://akuity.io/signup/)
+
+![](/img-posts/arc-akuity-akuity.png)
