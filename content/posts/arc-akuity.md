@@ -83,9 +83,9 @@ Once deployed and synced, you can see the GitHub Actions Runner in the ArgoCD UI
 
 ![](/img-posts/arc-akuity-deployed.png)
 
-The GitHub Actions Runner Controller creates the `arc-system` namespace, which manages the core controller components. Meanwhile, the GitHub Actions Runner creates the `arc-runner` namespace, where the actual runner pods reside. When GitHub Actions workflows are triggered, new pods will be dynamically created in the `arc-runner` namespace to execute the jobs.
+The GitHub Actions Runner Controller creates the `arc-systems` namespace, which manages the core controller components. Meanwhile, the GitHub Actions Runner creates the `arc-runners` namespace, where the actual runner pods reside. When GitHub Actions workflows are triggered, new pods will be dynamically created in the `arc-runners` namespace to execute the jobs.
 
-> And `arc-runner-set` is the name of the runner installation, which will be used on `runs-on` in the GitHub Actions workflow.
+> And `arc-runners` is the name of the runner installation, which will be used on `runs-on` in the GitHub Actions workflow.
 
 You can check your GitHub organization settings to see the runner installation.
 
@@ -96,25 +96,25 @@ You can check your GitHub organization settings to see the runner installation.
 Now the runner is ready to be used. You can trigger a GitHub Actions workflow with the self-hosted runner by specifying the runner installation name in the `runs-on` field of the workflow.
 
 ```yaml
-name: ARC Runner Set Demo
+name: ARC Runners Demo
 
 on:
   workflow_dispatch:
 
 jobs:
-  arc-runner-set-demo:
-    runs-on: arc-runner-set
+  arc-runners-demo:
+    runs-on: arc-runners
     steps:
       - run: echo "🎉 This job uses runner scale set runners!"
 ```
 
-This workflow will be executed by the self-hosted runner in the `arc-runner` namespace.
+This workflow will be executed by the self-hosted runner in the `arc-runners` namespace.
 
 ## One More Thing - Monitor Your Actions with KubeVision!
 
 The Akuity Platform offers powerful KubeVision capabilities, enabling seamless monitoring and management of your GitHub Actions workflows!
 
-Start by navigating to the KubeVision UI and switching to the `arc-runner` namespace.
+Start by navigating to the KubeVision UI and switching to the `arc-runners` namespace.
 
 ![](/img-posts/arc-akuity-kubevision-1.png)
 
@@ -138,6 +138,7 @@ The infrastructure tab offers an extensive overview of your runner deployment, f
 
 Akuity Platform is free to try! Sign up for a free trial and start monitoring your GitHub Actions workflows today!
 
-[Sign up for a free trial](https://akuity.io/signup/)
+[Sign up for a free trial!](https://akuity.io/signup/)
+
 
 ![](/img-posts/arc-akuity-akuity.png)
