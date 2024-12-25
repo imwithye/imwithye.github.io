@@ -61,7 +61,7 @@ You may customize the `destinationServer` to point to your own cluster, which is
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "arc-runner"
+  name: arc-runner
 spec:
   destination:
     namespace: argocd
