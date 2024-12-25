@@ -78,3 +78,34 @@ spec:
       prune: true
       selfHeal: true
 ```
+
+Once deployed and synced, you can see the GitHub Actions Runner in the ArgoCD UI.
+
+![](/img-posts/arc-akuity-deployed.png)
+
+The GitHub Actions Runner Controller creates the `arc-system` namespace, which manages the core controller components. Meanwhile, the GitHub Actions Runner creates the `arc-runner` namespace, where the actual runner pods reside. When GitHub Actions workflows are triggered, new pods will be dynamically created in the `arc-runner` namespace to execute the jobs.
+
+> And `arc-runner-set` is the name of the runner installation, which will be used on `runs-on` in the GitHub Actions workflow.
+
+You can check your GitHub organization settings to see the runner installation.
+
+![](/img-posts/arc-akuity-runner.png)
+
+## 4. Trigger a GitHub Actions Workflow with Self-hosted Runner!
+
+Now the runner is ready to be used. You can trigger a GitHub Actions workflow with the self-hosted runner by specifying the runner installation name in the `runs-on` field of the workflow.
+
+```yaml
+name: ARC Runner Set Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  arc-runner-set-demo:
+    runs-on: arc-runner-set
+    steps:
+      - run: echo "🎉 This job uses runner scale set runners!"
+```
+
+This workflow will be executed by the self-hosted runner in the `arc-runner` namespace.
