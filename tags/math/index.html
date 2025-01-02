@@ -11,7 +11,7 @@ $$ \min_{\mathbf{x}} \quad \frac{1}{2} \sum_{i} \left(||f_i (x_{i_1}, … ,x_{i_
 $$ \frac{1}{2}(10-x)^2 $$
 我们用Ceres Solver来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数
 struct CostFunctor { template &lt;typename T> bool operator()(const T* const x, T* residual) const { residual[0] = 10.0 - x[0]; return true; } } 现在我们可以解决这个优化问题：
-...</p></div><footer class=entry-footer><span title='2023-12-23 00:00:00 +0000 UTC'>December 23, 2023</span>&nbsp;·&nbsp;Yiwei Gong</footer><a class=entry-link aria-label="post link to 非线性优化 - Ceres Solver" href=https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://yiwei.dev/>禅心剑气相思骨</a></span> ·
+...</p></div><footer class=entry-footer><span title='2023-12-23 00:00:00 +0000 UTC'>December 23, 2023</span>&nbsp;·&nbsp;Yiwei Gong</footer><a class=entry-link aria-label="post link to 非线性优化 - Ceres Solver" href=https://yiwei.dev/posts/%E9%9D%9E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96---ceres-solver/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://yiwei.dev/>禅心剑气相思骨</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
