@@ -2,7 +2,6 @@ theme: PaperMod
 
 baseURL: https://yiwei.dev
 title: 禅心剑气相思骨
-paginate: 7
 
 enableRobotsTXT: true
 buildDrafts: false
