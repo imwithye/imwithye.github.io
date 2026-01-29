@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Programming on 禅心剑气相思骨</title>
-    <link>https://yiwei.dev/tags/programming/</link>
-    <description>Recent content in Programming on 禅心剑气相思骨</description>
+    <title>AI on 禅心剑气相思骨</title>
+    <link>https://yiwei.dev/tags/ai/</link>
+    <description>Recent content in AI on 禅心剑气相思骨</description>
     <generator>Hugo -- 0.155.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 28 Jan 2026 23:30:03 +0000</lastBuildDate>
-    <atom:link href="https://yiwei.dev/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yiwei.dev/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI, 当程序员开始感到“绝望”</title>
       <link>https://yiwei.dev/posts/ai-despair/</link>
@@ -22,22 +22,6 @@
 &lt;p&gt;夜色渐深，话题最终落到了职业的归宿上。未来的程序员，大概率会分化成两类：绝大多数人变成“预制菜加热工”，负责拼装 AI 生成的代码模块，也就是所谓的“调包侠”的终极形态；而只有极少数人，能像坚持古法烹饪的老牌厨师一样，去死磕那些 AI 暂时无法触及的物理边界和复杂系统。&lt;/p&gt;
 &lt;p&gt;这顿烧烤吃得有些撑，临走时，路边的白炽灯晃得人眼晕。这个世界终究是一个巨大的草台班子，AI 正在重新分配桌上的筹码，而我们是那个看着牌桌规则被改写的人。二十年后，社会分工或许会重构完成，而现在，我们这群“旧时代的农民”能做的，或许就是在巨大的收割机开过来之前，先学会怎么给它写“咒语”。&lt;/p&gt;
 &lt;p&gt;或者，像老友在微醺中半开玩笑说的那样：“实在不行，就别写代码了，去加仓几手内存厂商的股票吧。”毕竟，在淘金热里，卖铲子的人永远比挖金子的人活得久。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Asynchronous function in Unity</title>
-      <link>https://yiwei.dev/posts/asynchronous-function-in-unity/</link>
-      <pubDate>Mon, 16 Nov 2020 11:30:03 +0000</pubDate>
-      <guid>https://yiwei.dev/posts/asynchronous-function-in-unity/</guid>
-      <description>&lt;h2 id=&#34;async-and-await-keyword&#34;&gt;Async and await keyword&lt;/h2&gt;
-&lt;p&gt;Since Unity 2019, Unity introduces C# task and async/await keyword to MonoBehaviour. For Unity callback functions like &lt;code&gt;Start&lt;/code&gt;, &lt;code&gt;Update&lt;/code&gt;, now it supports the async version, and with the &lt;code&gt;async&lt;/code&gt; keyword in the front, the function now will be dispatched asynchronously automatically by the engine.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Start()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Start task delay 2 seconds&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; Task.Delay(TimeSpan.FromSeconds(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;));
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Debug.Log(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Task delay 2 finished&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The function on the above will be executed and the first log shows immediately while the second log shows after 2 seconds.
-The C# build-in HTTP library also provides a nice async wrapper, which can be used in the asynchronous MonoBehaviour as well.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

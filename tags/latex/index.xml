@@ -4,7 +4,7 @@
     <title>LaTex on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/latex/</link>
     <description>Recent content in LaTex on 禅心剑气相思骨</description>
-    <generator>Hugo -- 0.153.2</generator>
+    <generator>Hugo -- 0.155.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 16 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://yiwei.dev/tags/latex/index.xml" rel="self" type="application/rss+xml" />
@@ -20,16 +20,16 @@
 &lt;h2 id=&#34;1-下载tinytex二进制发行版&#34;&gt;1. 下载TinyTex二进制发行版&lt;/h2&gt;
 &lt;p&gt;TinyTex的发行版可以直接从GitHub, &lt;a href=&#34;https://github.com/rstudio/tinytex-releases&#34;&gt;https://github.com/rstudio/tinytex-releases&lt;/a&gt;下载获得。我下载的是&lt;code&gt;TinyTeX&lt;/code&gt;版本，&lt;code&gt;TinyTeX-2&lt;/code&gt;的体积过于庞大，&lt;code&gt;TinyTeX-1&lt;/code&gt;和&lt;code&gt;TinyTeX-0&lt;/code&gt;的预置package又太少。&lt;/p&gt;
 &lt;p&gt;下载完成后解压缩放到任意文件夹下，并且将&lt;code&gt;bin&lt;/code&gt;目录添加到&lt;code&gt;PATH&lt;/code&gt;变量中。我是用的是macOS，因此我的&lt;code&gt;PATH&lt;/code&gt;为&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:$HOME/TinyTeX/bin/universal-darwin
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:$HOME/TinyTeX/bin/universal-darwin
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-更新tlmgr源和安装中文支持&#34;&gt;2. 更新&lt;code&gt;tlmgr&lt;/code&gt;源和安装中文支持&lt;/h2&gt;
 &lt;p&gt;设置好环境变量后，重启终端就可以访问&lt;code&gt;tlmgr&lt;/code&gt;。为了在国内更快的访问速度，可以修改&lt;code&gt;tlmgr&lt;/code&gt;源为清华源，执行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后安装&lt;code&gt;ctex&lt;/code&gt;包获得中文支持&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr install ctex
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tlmgr install ctex
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-安装vscode--latex-workshop&#34;&gt;3. 安装VScode + LaTex Workshop&lt;/h2&gt;
 &lt;p&gt;在VScode中安装LaTex Workshop插件，安装成功后打开任意&lt;code&gt;tex&lt;/code&gt;文件就可以愉快的书写啦。&lt;/p&gt;
 &lt;p&gt;对于中文支持，可以使用&lt;code&gt;CJKutf8&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;{article}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;{article}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{CJKutf8}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{CJK*}{UTF8}{gbsn}

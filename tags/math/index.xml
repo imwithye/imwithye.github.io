@@ -4,7 +4,7 @@
     <title>Math on 禅心剑气相思骨</title>
     <link>https://yiwei.dev/tags/math/</link>
     <description>Recent content in Math on 禅心剑气相思骨</description>
-    <generator>Hugo -- 0.153.2</generator>
+    <generator>Hugo -- 0.155.0</generator>
     <language>en</language>
     <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://yiwei.dev/tags/math/index.xml" rel="self" type="application/rss+xml" />
@@ -33,7 +33,7 @@ $$&lt;/p&gt;
 \frac{1}{2}(10-x)^2
 $$&lt;/p&gt;
 &lt;p&gt;我们用&lt;code&gt;Ceres Solver&lt;/code&gt;来求解这个问题。很显然，这里的代价函数是$f(x) = 10 - x$，$\rho$为 1，且$x$在实数域上没有约束。所以我们定义我们的代价函数&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CostFunctor&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CostFunctor&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typename&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;operator&lt;/span&gt;()(&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; x, T&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; residual) &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        residual[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10.0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; x[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;];
